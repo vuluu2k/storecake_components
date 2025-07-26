@@ -1,7 +1,8 @@
-import fs from 'fs'
+import fs from 'fs/promises'
 import path from 'path'
 import fg from 'fast-glob'
 import chokidar from 'chokidar'
+import { extractPropsFromVueFile } from './extract-props'
 
 const componentsDir = path.resolve(process.cwd(), 'src/components')
 const storiesDir = path.resolve(process.cwd(), 'src/stories')
@@ -18,7 +19,7 @@ function normalizeImportPath(from: string, to: string) {
   return rel
 }
 
-function genStoryFile(componentPath: string) {
+async function genStoryFile(componentPath: string) {
   console.log('componentPath', componentPath)
   if (!componentPath.endsWith('.vue')) return
 
@@ -28,6 +29,10 @@ function genStoryFile(componentPath: string) {
 
   const importPath = normalizeImportPath(storyPath, componentPath)
   const titlePath = relativePath.replace(/\\/g, '/').replace(/\.vue$/, '')
+  // Read and parse Vue component
+  const fileContent = await fs.readFile(componentPath, 'utf-8')
+  const propsData = await extractPropsFromVueFile(fileContent)
+  console.log(propsData)
 
   const content = `
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
@@ -79,16 +84,14 @@ export const Small: Story = {
 };
   `.trim()
 
-  fs.mkdirSync(path.dirname(storyPath), { recursive: true })
-  fs.writeFileSync(storyPath, content)
+  await fs.mkdir(path.dirname(storyPath), { recursive: true })
+  await fs.writeFile(storyPath, content, 'utf-8')
   console.log(`✅ Generated: ${storyPath}`)
 }
 
 async function generateAllStories() {
-  console.log('in here', componentsDir)
   const vueFiles = await fg('**/*.vue', { cwd: componentsDir, absolute: true })
-  console.log('first', vueFiles)
-  vueFiles.forEach(genStoryFile)
+  await Promise.all(vueFiles.map(genStoryFile))
   console.log(`🧾 Generated ${vueFiles.length} stories.`)
 }
 
@@ -101,8 +104,6 @@ async function watchMode() {
     depth: 5,
   })
 
-  console.log('in here')
-
   watcher.on('add', genStoryFile)
   watcher.on('change', genStoryFile)
 }
@@ -110,9 +111,7 @@ async function watchMode() {
 const isWatch = process.argv.includes('--watch')
 
 if (isWatch) {
-  console.log('in here')
   watchMode()
 } else {
-  console.log('out here')
   generateAllStories()
 }
