@@ -1,13 +1,29 @@
-// eslint.config.js
-import { defineConfig } from 'eslint/config'
+import eslint from '@eslint/js';
+import eslintConfigPrettier from 'eslint-config-prettier';
+import eslintPluginVue from 'eslint-plugin-vue';
+import globals from 'globals';
+import typescriptEslint from 'typescript-eslint';
 
-export default defineConfig([
+export default typescriptEslint.config(
+  { ignores: ['*.d.ts', '**/coverage', '**/dist'] },
   {
-    files: ['src/**/*.{js,jsx,vue}'],
-    extends: ['eslint:recommended', 'plugin:vue/vue3-recommended', 'prettier'],
+    extends: [
+      eslint.configs.recommended,
+      ...typescriptEslint.configs.recommended,
+      ...eslintPluginVue.configs['flat/recommended'],
+    ],
+    files: ['**/*.{ts,vue}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: globals.browser,
+      parserOptions: {
+        parser: typescriptEslint.parser,
+      },
+    },
+    rules: {
+      'vue/multi-word-component-names': 'off',
+    },
   },
-  {
-    files: ['src/**/*.{ts,tsx}'],
-    extends: ['plugin:@typescript-eslint/recommended', 'prettier'],
-  },
-])
+  eslintConfigPrettier
+);
