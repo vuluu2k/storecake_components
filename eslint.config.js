@@ -25,6 +25,7 @@ export default typescriptEslint.config(
       'vue/multi-word-component-names': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       'vue/no-reserved-component-names': 'off',
+      'vue/require-default-prop': 'off',
     },
   },
   eslintConfigPrettier

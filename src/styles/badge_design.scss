@@ -1,0 +1,193 @@
+.badge-design {
+  $badge-border-radius: 100px;
+  $badge-dot-size: 6px;
+  position: relative;
+  display: inline-flex;
+  min-width: 20px;
+  min-height: 20px;
+
+  .badge-content {
+    display: inline-block;
+  }
+
+  $badge-sizes: (
+    'sm': (
+      min-width: var(--spc-16),
+      font-size: 11px,
+      height: var(--spc-16),
+      transform: translate(45%, -40%),
+      padding: 0 4px,
+    ),
+    'md': (
+      min-width: 20px,
+      font-size: 12px,
+      height: 20px,
+      padding: 0 6px,
+    ),
+  );
+
+  $badge-types: (
+    'primary': (
+      bg: var(--color-bg-brand),
+      color-default: white,
+      ghost-bg: var(--color-bg-brand-light),
+      ghost-color: var(--color-content-brand),
+      ghost-border: var(--color-bg-brand),
+    ),
+    'positive': (
+      bg: var(--color-bg-positive),
+      color-default: white,
+      ghost-bg: var(--color-bg-positive-light),
+      ghost-color: var(--color-content-positive),
+      ghost-border: var(--color-bg-positive),
+    ),
+    'secondary': (
+      bg: var(--color-neutral-100),
+      color-default: var(--color-content-neutral-primary),
+      ghost-bg: var(--color-bg-gray),
+      ghost-color: var(--color-content-neutral-primary),
+      ghost-border: var(--color-border-gray),
+    ),
+    'info': (
+      bg: var(--color-bg-info),
+      color-default: white,
+      ghost-bg: var(--color-bg-info-light),
+      ghost-color: var(--color-content-info),
+      ghost-border: var(--color-border-info),
+    ),
+    'success': (
+      bg: var(--color-bg-positive),
+      color-default: white,
+      ghost-bg: var(--color-bg-positive-light),
+      ghost-color: var(--color-content-positive),
+      ghost-border: var(--color-border-positive),
+    ),
+    'warning': (
+      bg: var(--color-bg-warning),
+      color-default: white,
+      ghost-bg: var(--color-bg-warning-light),
+      ghost-color: var(--color-content-warning),
+      ghost-border: var(--color-border-warning),
+    ),
+    'error': (
+      bg: var(--color-bg-negative),
+      color-default: white,
+      ghost-bg: var(--color-bg-negative-light),
+      ghost-color: var(--color-content-negative),
+      ghost-border: var(--border-color-negative),
+    ),
+  );
+
+  $status-dots: (
+    'primary': var(--color-bg-brand),
+    'secondary': var(--color-bg-gray),
+    'info': var(--color-bg-info),
+    'positive': var(--color-bg-positive),
+    'warning': var(--color-bg-warning),
+    'error': var(--color-bg-negative),
+  );
+
+  @mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @mixin badge-position {
+    position: absolute;
+    top: var(--top-pos, 0);
+    right: var(--right-pos, 0);
+    left: var(--left-pos, unset);
+    bottom: var(--bottom-pos, unset);
+    transform: translate(50%, -50%);
+    transform-origin: 100% 0%;
+  }
+
+  @mixin generate-badge-types {
+    @each $type, $colors in $badge-types {
+      &.badge-#{$type} {
+        background-color: map-get($colors, bg);
+        color: map-get($colors, color-default);
+
+        &.badge-ghost {
+          background-color: map-get($colors, ghost-bg);
+          color: map-get($colors, ghost-color);
+          border-color: map-get($colors, ghost-border);
+        }
+      }
+    }
+  }
+
+  @mixin generate-badge-sizes {
+    @each $size, $props in $badge-sizes {
+      &.badge-#{$size} {
+        @each $prop, $value in $props {
+          #{$prop}: $value;
+        }
+      }
+    }
+  }
+
+  .badge-content {
+    position: unset;
+  }
+
+  sup.badge {
+    @include badge-position;
+    border: var(--spc-1) solid transparent;
+    border-radius: $badge-border-radius;
+    font-weight: 400;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+
+    &.badge-without-slot {
+      position: unset;
+      transform: unset;
+      transform-origin: unset;
+    }
+
+    span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      line-height: 1;
+    }
+
+    &.badge-border {
+      border-width: var(--spc-1);
+    }
+
+    &.badge-ghost {
+      background-color: transparent;
+      color: inherit;
+      border-color: currentColor;
+    }
+
+    &.badge-single.badge-sm {
+      transform: translate(50%, -30%);
+    }
+
+    @include generate-badge-sizes;
+    @include generate-badge-types;
+  }
+
+  sup.status-dot {
+    @include badge-position;
+    width: $badge-dot-size;
+    height: $badge-dot-size;
+    box-sizing: border-box;
+    display: block;
+    border-radius: 50%;
+    z-index: 1;
+
+    @each $type, $color in $status-dots {
+      &.status-dot-#{$type} {
+        background-color: $color;
+      }
+    }
+  }
+}
