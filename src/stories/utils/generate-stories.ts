@@ -71,7 +71,7 @@ async function genStoryFile(componentPath: string) {
   const typeStories = types.map((type) => {
     return `export const ${type.charAt(0).toUpperCase() + type.slice(1)}: Story = {
       args: {
-        ${keyArgs.includes('label') ? 'label: `${componentName}`,\n' : ''}
+        ${keyArgs.includes('label') ? `label: '${componentName}',` : ''}
         type: '${type}',
       },
     };`
@@ -80,31 +80,31 @@ async function genStoryFile(componentPath: string) {
   const sizeStories = sizes.map((size) => {
     return `export const ${size.charAt(0).toUpperCase() + size.slice(1)}: Story = {
       args: {
-        ${keyArgs.includes('label') ? 'label: `${componentName}`,\n' : ''}
+        ${keyArgs.includes('label') ? `label: '${componentName}',` : ''}
         size: '${size}',
       },
     };`
   })
 
   const content = `
-import type { Meta, StoryObj } from '@storybook/vue3-vite';
-${isFunction ? `import { fn } from 'storybook/test';` : ''}
-import ${componentName} from '${importPath}'
+    import type { Meta, StoryObj } from '@storybook/vue3-vite';
+    ${isFunction ? `import { fn } from 'storybook/test';` : ''}
+    import ${componentName} from '${importPath}'
 
-const meta = {
-  title: 'Auto/${titlePath}',
-  component: ${componentName},
-  tags: ['autodocs'],
-  argTypes: ${JSON.stringify(argTypes)},
-  args: ${JSON.stringify(args)},
-} satisfies Meta<typeof ${componentName}>;
+    const meta = {
+      title: 'Auto/${titlePath}',
+      component: ${componentName},
+      tags: ['autodocs'],
+      argTypes: ${JSON.stringify(argTypes)},
+      args: ${JSON.stringify(args)},
+    } satisfies Meta<typeof ${componentName}>;
 
-export default meta;
+    export default meta;
 
-type Story = StoryObj<typeof meta>;
+    type Story = StoryObj<typeof meta>;
 
-${typeStories.join('\n')}
-${sizeStories.join('\n')}
+    ${typeStories.join('\n')}
+    ${sizeStories.join('\n')}
   `.trim()
 
   await fs.mkdir(path.dirname(storyPath), { recursive: true })

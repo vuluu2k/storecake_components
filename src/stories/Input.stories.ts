@@ -52,22 +52,19 @@ type Story = StoryObj<typeof meta>
 
 export const Sm: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Input',
     size: 'sm',
   },
 }
 export const Md: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Input',
     size: 'md',
   },
 }
 export const Lg: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Input',
     size: 'lg',
   },
 }

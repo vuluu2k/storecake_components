@@ -38,85 +38,73 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     type: 'primary',
   },
 }
 export const Secondary: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     type: 'secondary',
   },
 }
 export const Gray: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     type: 'gray',
   },
 }
 export const Info: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     type: 'info',
   },
 }
 export const Warning: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     type: 'warning',
   },
 }
 export const Black: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     type: 'black',
   },
 }
 export const Gold: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     type: 'gold',
   },
 }
 export const Error: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     type: 'error',
   },
 }
 export const Danger: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     type: 'danger',
   },
 }
 export const Sm: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     size: 'sm',
   },
 }
 export const Md: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     size: 'md',
   },
 }
 export const Lg: Story = {
   args: {
-    label: `${componentName}`,
-
+    label: 'Button',
     size: 'lg',
   },
 }
