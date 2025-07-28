@@ -7,9 +7,9 @@ const meta = {
   component: AutoComplete,
   tags: ['autodocs'],
   argTypes: {
-    options: { control: 'text', description: 'Property options of the AutoComplete' },
-    sKey: { control: 'text', description: 'Property sKey of the AutoComplete' },
-    sValue: { control: 'text', description: 'Property sValue of the AutoComplete' },
+    options: { control: 'array', description: 'Property options of the AutoComplete' },
+    sKey: { control: 'text', description: 'Select a property of option is Key' },
+    sValue: { control: 'text', description: 'Select a property of option is Value' },
     title: { control: 'text', description: 'Property title of the AutoComplete' },
   },
   args: { sKey: 'key', sValue: 'value' },

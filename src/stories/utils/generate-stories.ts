@@ -139,6 +139,10 @@ function getControl(type: string | string[], validator?: any[]): Record<string, 
     return { control: 'number' }
   }
 
+  if (type === 'Array') {
+    return { control: 'array' }
+  }
+
   return { control: 'text' }
 }
 
@@ -160,6 +164,10 @@ function getDescription(key: string, componentName: string): string {
       return `Disabled state of the ${componentName}`
     case 'classes':
       return `Classes of the ${componentName}`
+    case 'sValue':
+      return `Select a property of option is Value`
+    case 'sKey':
+      return `Select a property of option is Key`
     default:
       return `Property ${key} of the ${componentName}`
   }
