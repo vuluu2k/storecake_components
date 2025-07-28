@@ -7,7 +7,7 @@ const meta = {
   component: Input,
   tags: ['autodocs'],
   argTypes: {
-    value: { control: 'text', description: 'Property value of the Input' },
+    value: { control: 'number', description: 'Property value of the Input' },
     classes: { control: 'text', description: 'Classes of the Input' },
     placeholder: { control: 'text', description: 'Property placeholder of the Input' },
     size: { control: 'select', options: ['sm', 'md', 'lg'], description: 'Size of the Input' },
@@ -21,7 +21,7 @@ const meta = {
     disabled: { control: 'boolean', description: 'Disabled state of the Input' },
     allowClear: { control: 'boolean', description: 'Property allowClear of the Input' },
     isTextArea: { control: 'boolean', description: 'Property isTextArea of the Input' },
-    rows: { control: 'text', description: 'Property rows of the Input' },
+    rows: { control: 'number', description: 'Property rows of the Input' },
     useDebounce: { control: 'boolean', description: 'Property useDebounce of the Input' },
     require: { control: 'boolean', description: 'Property require of the Input' },
     isNumber: { control: 'boolean', description: 'Property isNumber of the Input' },

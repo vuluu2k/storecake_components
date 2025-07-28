@@ -1,0 +1,39 @@
+.status-design {
+  min-width: var(--size) !important;
+  min-height: var(--size) !important;
+  width: var(--size) !important;
+  height: var(--size) !important;
+  border-radius: 50%;
+  background: var(--color-bg-neutral-light, #f2f2f2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.success {
+    --status-background: var(--color-bg-positive, #3b8e68);
+  }
+
+  &.warning {
+    --status-background: var(--color-bg-pending, #f98315);
+  }
+
+  &.error {
+    --status-background: var(--color-bg-error, #e01e5a);
+  }
+
+  &.info {
+    --status-background: var(--color-bg-info, #3b82f6);
+  }
+
+  &.disabled {
+    --status-background: var(--color-icon-light-gray, #a3a3a3);
+  }
+
+  &-icon {
+    width: var(--size);
+    height: var(--size);
+    transform: scale(0.75);
+    border-radius: 50%;
+    background: var(--status-background);
+  }
+}

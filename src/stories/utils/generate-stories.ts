@@ -123,8 +123,8 @@ function getControl(type: string | string[], validator?: any[]): Record<string, 
   }
 
   if (Array.isArray(type)) {
-    const typeFirst = type[0]
-    return getControl(typeFirst)
+    if (type.includes('Number')) return getControl('Number')
+    return getControl(type[0])
   }
 
   if (type === 'Boolean') {
