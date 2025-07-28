@@ -32,23 +32,58 @@ async function genStoryFile(componentPath: string) {
   // Read and parse Vue component
   const fileContent = await fs.readFile(componentPath, 'utf-8')
   const propsData = await extractPropsFromVueFile(fileContent)
-  console.log(propsData)
+  let isFunction = false
+  const argTypes = Object.entries(propsData).reduce(
+    (acc, [key, value]) => {
+      const { type, validator } = value
+      const argType: Record<string, any> = {}
+
+      if (validator?.length) {
+        argType.control = {
+          type: 'select',
+          options: validator,
+        }
+      } else if (type === 'Boolean') {
+        argType.control = {
+          type: 'boolean',
+        }
+      } else if (type === 'String') {
+        argType.control = {
+          type: 'text',
+        }
+      }
+
+      if (type === 'Function') {
+        isFunction = true
+      }
+
+      acc[key] = argType
+      return acc
+    },
+    {} as Record<string, any>
+  )
+
+  const args = Object.entries(propsData).reduce(
+    (acc, [key, value]) => {
+      const { default: defaultValue } = value
+
+      acc[key] = defaultValue
+      return acc
+    },
+    {} as Record<string, any>
+  )
 
   const content = `
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
-import { fn } from 'storybook/test';
+${isFunction ? `import { fn } from 'storybook/test';` : ''}
 import ${componentName} from '${importPath}'
 
 const meta = {
   title: 'Auto/${titlePath}',
   component: ${componentName},
   tags: ['autodocs'],
-  argTypes: {
-    
-  },
-  args: {
-    
-  }
+  argTypes: ${JSON.stringify(argTypes)},
+  args: ${JSON.stringify(args)},
 } satisfies Meta<typeof ${componentName}>;
 
 export default meta;

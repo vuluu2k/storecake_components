@@ -4,12 +4,12 @@
       'button-design',
       type,
       size,
+      classes,
       {
-        danger,
-        disabled,
-        loading,
-        classes,
-        ghost,
+        danger: danger,
+        disabled: disabled,
+        loading: loading,
+        ghost: ghost,
         'only-icon': !$slots.default && !label && ($slots.icon || $slots.suffix),
         'has-icon': ($slots.icon || $slots.suffix) && ($slots.default || label) && !loading,
         'has-loading-with-icon': $slots.icon && loading,
@@ -34,14 +34,17 @@
 </template>
 
 <script>
+  import { Button as AButton } from 'ant-design-vue'
   import { PhCircleNotch } from '@phosphor-icons/vue'
+
   export default {
     components: {
+      AButton,
       PhCircleNotch,
     },
     props: {
       label: {
-        type: [String, Number],
+        type: String,
         default: '',
       },
       loading: {

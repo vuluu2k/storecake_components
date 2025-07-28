@@ -25,12 +25,12 @@ export async function extractPropsFromVueFile(fileContent: string): Promise<
       type: string | string[]
       required?: boolean
       default?: unknown
-      validator?: (value: unknown) => boolean
+      validator?: Array<string> | string
     }
   >
 > {
   const { descriptor } = parse(fileContent)
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   const props: Record<string, any> = {}
 
   const scriptContent = descriptor.script?.content || ''
@@ -51,7 +51,6 @@ export async function extractPropsFromVueFile(fileContent: string): Promise<
               if (isObjectPropertyWithIdentifier(prop)) {
                 const propName = prop.key.name
                 if (prop.value.type === 'ObjectExpression') {
-                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   const propConfig: any = {}
 
                   // Process each property in the prop configuration
@@ -63,7 +62,7 @@ export async function extractPropsFromVueFile(fileContent: string): Promise<
                       if (key === 'type') {
                         if (propConfigItem.value.type === 'ArrayExpression') {
                           propConfig.type = propConfigItem.value.elements
-                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
                             .filter((el): el is any => el?.type === 'Identifier')
                             .map((el) => el.name)
                         } else if (propConfigItem.value.type === 'Identifier') {
@@ -109,14 +108,14 @@ export async function extractPropsFromVueFile(fileContent: string): Promise<
                           if (arrayMatches && arrayMatches.length > 0) {
                             // Extract values from the first array found
                             const arrayValues = arrayMatches[0]
-                              .replace(/\[\]'"\s/g, '')
+                              .replace(/\[|\]/g, '')
                               .split(',')
-                              .filter(Boolean)
+                              .map((item) => item.trim().replace(/'/g, ''))
 
                             if (arrayValues.length > 0) {
                               propConfig.validator = arrayValues
                             } else {
-                              propConfig.validator = 'Function'
+                              propConfig.validator = []
                             }
                           } else {
                             // Fallback to regex patterns if no array found
@@ -135,7 +134,7 @@ export async function extractPropsFromVueFile(fileContent: string): Promise<
                               regexPatterns.push(match[1])
                             }
 
-                            propConfig.validator = regexPatterns.length > 0 ? regexPatterns : 'Function'
+                            propConfig.validator = regexPatterns.length > 0 ? regexPatterns : []
                           }
                         }
                       }
