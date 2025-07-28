@@ -36,6 +36,18 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+export const Default: Story = {
+  args: {
+    label: '',
+    loading: false,
+    type: 'primary',
+    size: 'md',
+    danger: false,
+    ghost: false,
+    disabled: false,
+    classes: '',
+  },
+}
 export const Primary: Story = {
   args: {
     label: 'Button',

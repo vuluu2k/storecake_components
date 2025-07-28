@@ -19,6 +19,9 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+export const Default: Story = {
+  args: { type: 'info' },
+}
 export const Info: Story = {
   args: {
     type: 'info',

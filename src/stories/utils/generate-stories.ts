@@ -68,6 +68,10 @@ async function genStoryFile(componentPath: string) {
     {} as Record<string, any>
   )
 
+  const defaultStory = `export const Default: Story = {
+    args: ${JSON.stringify(args)},
+  };`
+
   const typeStories = types.map((type) => {
     return `export const ${type.charAt(0).toUpperCase() + type.slice(1)}: Story = {
       args: {
@@ -103,6 +107,7 @@ async function genStoryFile(componentPath: string) {
 
     type Story = StoryObj<typeof meta>;
 
+    ${defaultStory}
     ${typeStories.join('\n')}
     ${sizeStories.join('\n')}
   `.trim()

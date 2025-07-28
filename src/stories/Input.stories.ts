@@ -50,6 +50,27 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+export const Default: Story = {
+  args: {
+    classes: '',
+    placeholder: '',
+    size: 'md',
+    label: '',
+    labelInfo: '',
+    questionInfo: '',
+    isError: false,
+    isLink: false,
+    message: '',
+    id: '',
+    disabled: false,
+    allowClear: false,
+    rows: 2,
+    useDebounce: false,
+    require: false,
+    isNumber: false,
+  },
+}
+
 export const Sm: Story = {
   args: {
     label: 'Input',
