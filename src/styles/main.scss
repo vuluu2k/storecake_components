@@ -1,12 +1,8 @@
-/* Import Tailwind layers */
-@import 'tailwind-layers';
-
-/* Import các file SCSS hiện có */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import 'color_root';
 @import 'animation';
 @import 'text_design';
 @import 'input_design';
 @import 'button_design';
-
-/* Các style tùy chỉnh khác */
-/* Lưu ý: Sử dụng @layer để đảm bảo các style được áp dụng đúng thứ tự */
