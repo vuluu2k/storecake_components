@@ -33,23 +33,22 @@ async function genStoryFile(componentPath: string) {
   const fileContent = await fs.readFile(componentPath, 'utf-8')
   const propsData = await extractPropsFromVueFile(fileContent)
   let isFunction = false
+  let types: any[] = [],
+    sizes: any[] = []
+
   const argTypes = Object.entries(propsData).reduce(
     (acc, [key, value]) => {
-      const { type, validator } = value
-      const argType: Record<string, any> = {}
+      const { type, validator = [] } = value
+      const argType: Record<string, any> = getControl(type, validator as any[])
 
-      if (validator?.length) {
-        argType.control = 'select'
-        argType.options = validator
-      } else if (type === 'Boolean') {
-        argType.control = 'boolean'
-      } else if (type === 'String') {
-        argType.control = 'text'
-      }
+      argType.description = getDescription(key, componentName)
 
       if (type === 'Function') {
         isFunction = true
       }
+
+      if (key == 'type') types = validator as any[]
+      if (key == 'size') sizes = validator as any[]
 
       acc[key] = argType
       return acc
@@ -66,6 +65,24 @@ async function genStoryFile(componentPath: string) {
     },
     {} as Record<string, any>
   )
+
+  const typeStories = types.map((type) => {
+    return `export const ${type.charAt(0).toUpperCase() + type.slice(1)}: Story = {
+      args: {
+        type: '${type}',
+        label: 'Button',
+      },
+    };`
+  })
+
+  const sizeStories = sizes.map((size) => {
+    return `export const ${size.charAt(0).toUpperCase() + size.slice(1)}: Story = {
+      args: {
+        label: 'Button',
+        size: '${size}',
+      },
+    };`
+  })
 
   const content = `
 import type { Meta, StoryObj } from '@storybook/vue3-vite';
@@ -84,40 +101,61 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  args: {
-    type: 'primary',
-    label: 'Button',
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    type: 'secondary',
-    label: 'Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    type: 'primary',
-    label: 'Button',
-    size: 'lg',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    type: 'primary',
-    label: 'Button',
-    size: 'sm',
-  },
-};
+${typeStories.join('\n')}
+${sizeStories.join('\n')}
   `.trim()
 
   await fs.mkdir(path.dirname(storyPath), { recursive: true })
   await fs.writeFile(storyPath, content, 'utf-8')
   console.log(`✅ Generated: ${storyPath}`)
+}
+
+function getControl(type: string | string[], validator?: any[]): Record<string, any> {
+  if (validator?.length) {
+    return { control: 'select', options: validator }
+  }
+
+  if (Array.isArray(type)) {
+    const typeFirst = type[0]
+    return getControl(typeFirst)
+  }
+
+  if (type === 'Boolean') {
+    return { control: 'boolean' }
+  }
+
+  if (type === 'String') {
+    return { control: 'text' }
+  }
+
+  if (type === 'Number') {
+    return { control: 'number' }
+  }
+
+  return { control: 'text' }
+}
+
+function getDescription(key: string, componentName: string): string {
+  switch (key) {
+    case 'label':
+      return `Label of the ${componentName}`
+    case 'loading':
+      return `Loading state of the ${componentName}`
+    case 'type':
+      return `Type of the ${componentName}`
+    case 'size':
+      return `Size of the ${componentName}`
+    case 'danger':
+      return `Danger state of the ${componentName}`
+    case 'ghost':
+      return `Ghost state of the ${componentName}`
+    case 'disabled':
+      return `Disabled state of the ${componentName}`
+    case 'classes':
+      return `Classes of the ${componentName}`
+    default:
+      return `Property ${key} of the ${componentName}`
+  }
 }
 
 async function generateAllStories() {
