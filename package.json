@@ -27,7 +27,11 @@
     "postinstall": "husky install",
     "storybook:generate": "tsx --watch src/stories/utils/generate-stories.ts",
     "storybook:watch": "tsx --watch src/stories/utils/generate-stories.ts --watch",
-    "dev:storybook": "npm-run-all -p storybook:watch storybook"
+    "dev:storybook": "npm-run-all -p storybook:watch storybook",
+    "build:vue": "rollup -c && rollup -c --environment MINIFY",
+    "build:vue:watch": "rollup -c --watch",
+    "build:style": "sass --no-charset ./src/styles/index.scss | node ./build/print-banner.js > dist/storecake-components.css && cleancss -o dist/storecake-components.min.css dist/storecake-components.css",
+    "build:lib": "rimraf dist && npm run build:vue && npm run build:style"
   },
   "dependencies": {
     "vue": "^3.5.17"
@@ -48,6 +52,10 @@
     "@chromatic-com/storybook": "^4.0.1",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.32.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
     "@storybook/addon-a11y": "^9.0.18",
     "@storybook/addon-docs": "^9.0.18",
     "@storybook/addon-onboarding": "^9.0.18",
@@ -75,6 +83,9 @@
     "playwright": "^1.54.1",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-vue": "^6.0.0",
     "sass": "^1.54.8",
     "storybook": "^9.0.18",
     "tailwindcss": "^3.1.8",
