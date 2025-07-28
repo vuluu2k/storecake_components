@@ -1,0 +1,30 @@
+name: Build and deploy storybook docs
+on:
+  push:
+    branches: [main]
+    paths: ['src/stories/**', 'src/components/**', 'src/utils/**', 'src/styles/**', './storybook.yml'] # Trigger the action only when files change in the folders defined here
+permissions:
+  contents: write
+jobs:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install and Build 🔧
+        run: | # Install npm packages and build the Storybook files
+          git config --global user.email "vuluu040320@gmail.com"
+          git config --global user.name "vuluu2k"
+          npm install
+          npm run storybook:publish
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          git-config-name: vuluu2k
+          git-config-email: vuluu040320@gmail.com
+          branch: docs # The branch the action should deploy to.
+          folder: storybook-static # The folder that the build-storybook script generates files.
+          clean: true # Automatically remove deleted files from the deploy branch
