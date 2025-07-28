@@ -70,7 +70,7 @@ async function genStoryFile(componentPath: string) {
     return `export const ${type.charAt(0).toUpperCase() + type.slice(1)}: Story = {
       args: {
         type: '${type}',
-        label: 'Button',
+        label: '${componentName}',
       },
     };`
   })
@@ -78,7 +78,7 @@ async function genStoryFile(componentPath: string) {
   const sizeStories = sizes.map((size) => {
     return `export const ${size.charAt(0).toUpperCase() + size.slice(1)}: Story = {
       args: {
-        label: 'Button',
+        label: '${componentName}',
         size: '${size}',
       },
     };`

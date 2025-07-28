@@ -1,0 +1,340 @@
+$text-base-styles: (
+  h0: (
+    font-size: 48px,
+    font-style: normal,
+    line-height: 64px,
+  ),
+  h1: (
+    font-size: 38px,
+    font-style: normal,
+    line-height: 46px,
+  ),
+  h2: (
+    font-size: 30px,
+    font-style: normal,
+    line-height: 38px,
+  ),
+  h3: (
+    font-size: 24px,
+    font-style: normal,
+    line-height: 32px,
+  ),
+  h4: (
+    font-size: 20px,
+    font-style: normal,
+    line-height: 24px,
+  ),
+  h5: (
+    font-size: 16px,
+    font-style: normal,
+    line-height: 24px,
+  ),
+  body: (
+    font-size: 14px,
+    font-style: normal,
+    line-height: 22px,
+  ),
+  'body-sm': (
+    font-size: 13px,
+    font-style: normal,
+    line-height: 20px,
+  ),
+  footnote: (
+    font-size: 12px,
+    font-style: normal,
+    line-height: 18px,
+  ),
+);
+
+$text-weights: (
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+);
+
+@mixin inject-style($map) {
+  @each $k, $v in $map {
+    #{$k}: #{$v};
+  }
+}
+
+@mixin text-design($level, $weight) {
+  $base-style: map-get($text-base-styles, $level);
+  $font-weight: map-get($text-weights, $weight);
+
+  @if $base-style == null {
+    @error "Unknown text level: `#{$level}`.";
+  }
+  @if $font-weight == null {
+    @error "Unknown weight: `#{$weight}`.";
+  }
+
+  color: var(--color);
+  font-family: var(--font-family);
+  @include inject-style($base-style);
+  font-weight: $font-weight;
+}
+
+@each $level, $base-style in $text-base-styles {
+  @each $weight-name, $weight-value in $text-weights {
+    .text-design-#{$level}-#{$weight-name} {
+      color: var(--color, var(--color-content-neutral-primary));
+      font-family: var(--font-family);
+      @include inject-style($base-style);
+      font-weight: $weight-value;
+    }
+  }
+}
+
+@mixin text-design-body-regular {
+  @include text-design(body, regular);
+}
+
+@mixin text-design-body-sm-regular {
+  @include text-design(body-sm, regular);
+}
+
+@mixin text-design-body-regular-light {
+  --color: var(--color-text-muted, #818789);
+  @include text-design(body, regular);
+}
+
+.text-design-body-regular-light {
+  @include text-design-body-regular-light;
+}
+
+@mixin text-design-body-medium {
+  @include text-design(body, medium);
+}
+
+@mixin text-design-h4-medium {
+  @include text-design(h4, medium);
+}
+
+@mixin text-design-h4-bold {
+  @include text-design(h4, bold);
+}
+
+@mixin text-design-h5-medium {
+  @include text-design(h5, medium);
+}
+
+@mixin text-design-h5-bold {
+  @include text-design(h5, bold);
+}
+
+@mixin text-design-link-medium {
+  --color: var(--color-content-brand);
+  @include text-design(body, medium);
+}
+
+.text-design-link-medium {
+  @include text-design-link-medium;
+}
+
+@mixin text-design-link {
+  --color: var(--color-content-brand);
+  @include text-design(body, regular);
+
+  &:hover,
+  &:active {
+    color: var(--color-content-brand);
+  }
+}
+
+.text-design-link {
+  @include text-design-link;
+}
+
+@mixin text-design-link-bold {
+  --color: var(--color-content-brand);
+  @include text-design(body, bold)
+}
+
+.text-design-link-bold {
+  @include text-design-link-bold;
+}
+
+@mixin text-design-link-sm {
+  --color: var(--color-content-brand);
+  @include text-design(footnote, regular);
+}
+
+.text-design-link-sm {
+  @include text-design-link-sm;
+}
+
+@mixin text-design-link-open-medium {
+  --color: var(--color-content-brand);
+  @include text-design(body, medium);
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+    color: var(--color-content-brand);
+  }
+}
+
+.text-design-link-open-medium {
+  @include text-design-link-open-medium;
+}
+
+@mixin text-design-link-open-bold {
+  --color: var(--color-content-brand);
+  @include text-design(body, bold);
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    text-decoration: underline;
+    color: var(--color-content-brand);
+  }
+}
+
+.text-design-link-open-bold {
+  @include text-design-link-open-bold;
+}
+
+@mixin text-design-link-sm-bold {
+  --color: var(--color-content-brand);
+  @include text-design(footnote, bold);
+}
+
+.text-design-link-sm-bold {
+  @include text-design-link-sm-bold;
+}
+
+@mixin text-design-body-neutral-medium {
+  --color: var(--color-content-neutral-medium);
+  @include text-design(body, medium);
+}
+
+.text-design-body-neutral-medium {
+  @include text-design-body-neutral-medium;
+}
+
+@mixin text-design-body-neutral {
+  --color: var(--color-content-neutral-medium);
+  @include text-design(body, regular);
+}
+
+.text-design-body-neutral {
+  @include text-design-body-neutral;
+}
+
+@mixin text-design-body-footnote-sm {
+  --color: var(--color-content-neutral-medium);
+  @include text-design(footnote, regular);
+}
+
+.text-design-body-footnote-sm {
+  @include text-design-body-footnote-sm;
+}
+
+@mixin text-design-neutral-light {
+  --color: var(--color-content-neutral-light);
+  @include text-design(body, regular);
+}
+
+.text-design-neutral-light {
+  @include text-design-neutral-light;
+}
+
+@mixin text-design-neutral-light-500 {
+  --color: var(--color-content-neutral-light);
+  @include text-design(body, medium);
+}
+
+@mixin text-design-neutral-light-sm {
+  --color: var(--color-content-neutral-light);
+  @include text-design(footnote, regular);
+}
+
+.text-design-neutral-light-sm {
+  @include text-design-neutral-light-sm;
+}
+
+@mixin text-design-neutral-light-600-sm {
+  --color: var(--color-content-neutral-light);
+  @include text-design(footnote, semibold);
+}
+
+.text-design-neutral-light-600-sm {
+  @include text-design-neutral-light-600-sm;
+}
+
+@mixin text-design-neutral-strong {
+  --color: var(--color-content-neutral-strong, #404946);
+  @include text-design(body, regular);
+}
+
+.text-design-neutral-strong {
+  @include text-design-neutral-strong;
+}
+
+@mixin text-design-neutral-strong-medium {
+  --color: var(--color-content-neutral-strong);
+  @include text-design(body, medium);
+}
+
+.text-design-neutral-strong-medium {
+  @include text-design-neutral-strong-medium;
+}
+
+@mixin text-design-white-medium {
+  --color: var(--color-content-inverse, #fff);
+  @include text-design(body, medium);
+}
+
+.text-design-white-medium {
+  @include text-design-white-medium;
+}
+
+@mixin text-design-blue-16-600 {
+  --color: #434959;
+  @include text-design(h5, semibold);
+}
+
+.text-design-blue-16-600 {
+  @include text-design-blue-16-600;
+}
+
+@mixin text-design-blue-16-medium {
+  --color: #434959;
+  color: var(--color);
+  @include text-design(h5, medium);
+}
+
+.text-design-blue-16-medium {
+  @include text-design-blue-16-medium;
+}
+
+@mixin text-design-primary-600-14 {
+  --color: var(--color-primary-600);
+  @include text-design(body, regular);
+}
+
+.text-design-primary-600-14 {
+  @include text-design-primary-600-14;
+}
+
+@mixin text-design-primary-hover {
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: var(--color-content-brand);
+  }
+}
+
+.text-design-primary-hover {
+  @include text-design-primary-hover;
+}
+
+@mixin placeholder-design {
+  color: var(--color-content-placeholder);
+  @include text-design(body, regular);
+}
