@@ -23,6 +23,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "storybook:publish": "npm run build-storybook && touch ./storybook-static/.nojekyll",
     "postinstall": "husky install",
     "storybook:generate": "tsx --watch src/stories/utils/generate-stories.ts",
     "storybook:watch": "tsx --watch src/stories/utils/generate-stories.ts --watch"
