@@ -1,0 +1,108 @@
+.alert-design {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+
+  .alert-design-grid-line {
+    position: absolute;
+    left: -5px;
+    top: -5px;
+    max-width: 600px;
+    opacity: 0.2;
+    display: grid;
+    z-index: 1;
+    grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+    grid-auto-rows: 25px;
+    background: linear-gradient(to right, rgba(137, 137, 137, 1), rgba(137, 137, 137, 0));
+    background-clip: text;
+
+    .grid-line {
+      border: 0.2px solid #8989892b;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      right: 2px;
+      width: 14px;
+      height: 100%;
+      background-color: var(--background-color);
+    }
+  }
+
+  .alert-design-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 2;
+
+    .alert-design-icon {
+      background: linear-gradient(162deg, #f0f0f0 -75.71%, #fff 97.67%);
+      box-shadow: var(--box-shadow);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        width: 32px;
+        height: 32px;
+        color: var(--icon-color);
+      }
+    }
+
+    .alert-design-content {
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .alert-design-title {
+        @include text-design-body-medium;
+      }
+
+      .alert-design-sub-title {
+        max-width: 490px;
+        @include text-design-body-footnote-sm;
+      }
+    }
+  }
+
+  $types: (
+    'info': (
+      --background-color: var(--color-bg-info-light),
+      --border-color: var(--color-border-info),
+      --icon-color: var(--color-icon-info),
+      --box-shadow: 0px 0px 7px 0px rgba(47, 148, 201, 0.22),
+    ),
+    'warning': (
+      --background-color: var(--color-bg-warning-light),
+      --border-color: var(--color-border-warning),
+      --icon-color: var(--color-icon-warning),
+      --box-shadow: 0px 0px 7px 0px rgba(255, 123, 0, 0.22),
+    ),
+    'error': (
+      --background-color: var(--color-bg-negative-light),
+      --border-color: var(--color-border-negative),
+      --icon-color: var(--color-icon-negative),
+      --box-shadow: 0px 0px 7px 0px rgba(232, 69, 76, 0.22),
+    ),
+  );
+
+  @each $type, $values in $types {
+    &.#{$type} {
+      @each $key, $value in $values {
+        #{$key}: $value;
+      }
+    }
+  }
+}

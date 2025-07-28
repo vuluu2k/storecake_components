@@ -36,6 +36,8 @@ async function genStoryFile(componentPath: string) {
   let types: any[] = [],
     sizes: any[] = []
 
+  const keyArgs = Object.keys(propsData)
+
   const argTypes = Object.entries(propsData).reduce(
     (acc, [key, value]) => {
       const { type, validator = [] } = value
@@ -69,8 +71,8 @@ async function genStoryFile(componentPath: string) {
   const typeStories = types.map((type) => {
     return `export const ${type.charAt(0).toUpperCase() + type.slice(1)}: Story = {
       args: {
+        ${keyArgs.includes('label') ? 'label: `${componentName}`,\n' : ''}
         type: '${type}',
-        label: '${componentName}',
       },
     };`
   })
@@ -78,7 +80,7 @@ async function genStoryFile(componentPath: string) {
   const sizeStories = sizes.map((size) => {
     return `export const ${size.charAt(0).toUpperCase() + size.slice(1)}: Story = {
       args: {
-        label: '${componentName}',
+        ${keyArgs.includes('label') ? 'label: `${componentName}`,\n' : ''}
         size: '${size}',
       },
     };`
