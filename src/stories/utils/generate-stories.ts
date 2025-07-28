@@ -68,8 +68,14 @@ async function genStoryFile(componentPath: string) {
     {} as Record<string, any>
   )
 
+  const argDefault = {...args}
+
+  if(componentName == 'Button') argDefault.label = 'Button'
+
+  if(componentName == 'Badge') argDefault.count = 1
+
   const defaultStory = `export const Default: Story = {
-    args: ${JSON.stringify(args)},
+    args: ${JSON.stringify(argDefault)},
   };`
 
   const typeStories = types.map((type) => {
@@ -77,6 +83,7 @@ async function genStoryFile(componentPath: string) {
       args: {
         ${keyArgs.includes('label') ? `label: '${componentName}',` : ''}
         type: '${type}',
+        ${keyArgs.includes('count') ? `count: 1,` : ''}
       },
     };`
   })
@@ -86,6 +93,7 @@ async function genStoryFile(componentPath: string) {
       args: {
         ${keyArgs.includes('label') ? `label: '${componentName}',` : ''}
         size: '${size}',
+        ${keyArgs.includes('count') ? `count: 1,` : ''}
       },
     };`
   })
