@@ -1,0 +1,13 @@
+.divider-design {
+  width: var(--width, 100%);
+  height: var(--height, 1px);
+  background: var(--divider);
+  margin: var(--space, 16px) 0px;
+
+  &.vertical {
+    min-height: 10px;
+    width: var(--width, 1px);
+    height: var(--height, 100%);
+    margin: 0px var(--space, 16px);
+  }
+}

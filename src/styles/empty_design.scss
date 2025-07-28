@@ -1,0 +1,15 @@
+.empty-design {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  svg {
+    width: var(--size);
+    height: calc(var(--size) * 95 / 97);
+  }
+
+  div {
+    margin-top: 8px;
+    @include text-design-body-medium;
+  }
+}
