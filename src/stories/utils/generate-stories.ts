@@ -39,18 +39,12 @@ async function genStoryFile(componentPath: string) {
       const argType: Record<string, any> = {}
 
       if (validator?.length) {
-        argType.control = {
-          type: 'select',
-          options: validator,
-        }
+        argType.control = 'select'
+        argType.options = validator
       } else if (type === 'Boolean') {
-        argType.control = {
-          type: 'boolean',
-        }
+        argType.control = 'boolean'
       } else if (type === 'String') {
-        argType.control = {
-          type: 'text',
-        }
+        argType.control = 'text'
       }
 
       if (type === 'Function') {
@@ -92,29 +86,31 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    primary: true,
+    type: 'primary',
     label: 'Button',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    primary: false,
+    type: 'secondary',
     label: 'Button',
   },
 };
 
 export const Large: Story = {
   args: {
+    type: 'primary',
     label: 'Button',
-    size: 'large',
+    size: 'lg',
   },
 };
 
 export const Small: Story = {
   args: {
+    type: 'primary',
     label: 'Button',
-    size: 'small',
+    size: 'sm',
   },
 };
   `.trim()

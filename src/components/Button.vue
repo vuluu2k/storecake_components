@@ -36,6 +36,8 @@
 <script>
   import { Button as AButton } from 'ant-design-vue'
   import { PhCircleNotch } from '@phosphor-icons/vue'
+  import 'ant-design-vue/lib/button/style/css'
+  import '@/assets/styles/button_design.scss'
 
   export default {
     components: {

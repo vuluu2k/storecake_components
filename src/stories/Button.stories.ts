@@ -7,19 +7,17 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    label: { control: { type: 'text' } },
-    loading: { control: { type: 'boolean' } },
+    label: { control: 'text' },
+    loading: { control: 'boolean' },
     type: {
-      control: {
-        type: 'select',
-        options: ['primary', 'secondary', 'gray', 'info', 'warning', 'black', 'gold', 'error', 'danger'],
-      },
+      control: 'select',
+      options: ['primary', 'secondary', 'gray', 'info', 'warning', 'black', 'gold', 'error', 'danger'],
     },
-    size: { control: { type: 'select', options: ['sm', 'md', 'lg'] } },
-    danger: { control: { type: 'boolean' } },
-    ghost: { control: { type: 'boolean' } },
-    disabled: { control: { type: 'boolean' } },
-    classes: { control: { type: 'text' } },
+    size: { control: 'select', options: ['sm', 'md', 'lg'] },
+    danger: { control: 'boolean' },
+    ghost: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    classes: { control: 'text' },
   },
   args: {
     label: '',
@@ -39,28 +37,30 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    primary: true,
+    type: 'primary',
     label: 'Button',
   },
 }
 
 export const Secondary: Story = {
   args: {
-    primary: false,
+    type: 'secondary',
     label: 'Button',
   },
 }
 
 export const Large: Story = {
   args: {
+    type: 'primary',
     label: 'Button',
-    size: 'large',
+    size: 'lg',
   },
 }
 
 export const Small: Story = {
   args: {
+    type: 'primary',
     label: 'Button',
-    size: 'small',
+    size: 'sm',
   },
 }
