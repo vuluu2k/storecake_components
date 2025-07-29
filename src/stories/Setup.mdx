@@ -1,0 +1,67 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Setup" />
+
+# Storecake Components
+
+## Install library
+
+```bash
+npm install storecake_components
+```
+
+or
+
+```bash
+yarn add storecake_components
+```
+
+## How to use
+### in file main.ts 
+```js
+import 'storecake_components/dist/storecake_components.css'
+```
+
+### in file App.vue
+
+```html
+<script setup lang="ts">
+  import { ref } from "vue";
+  import {
+    Switch,
+    Button,
+    Tooltip
+  } from "storecake_components";
+
+  const checked = ref<boolean>(false);
+</script>
+
+<template>
+  <Switch v-model:value="checked" />
+</template>
+```
+
+you can install it same as plugin in main.ts
+
+```ts
+import StorecakeComponents from "storecake_components";
+
+app.use(StorecakeComponents);
+```
+
+or install some components of it
+
+```ts
+import { Switch } from "storecake_components";
+
+app.use(Switch);
+```
+
+## Contact
+
+Lưu Công Quang Vũ From Vietnamese
+
+- Email: vuluu040320@gmail.com
+- Number Phone: +84898709170
+- LinkTree: [vuluu2k](https://linktr.ee/vuluu2k)
+- LinkedIn: [vuluu2k](https://linkedin.com/in/vuluu2k)
