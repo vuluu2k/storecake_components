@@ -1,5 +1,12 @@
 <template>
-  <a-tooltip class="tooltip-design" overlay-class-name="tooltip-design-overlay" v-bind="$attrs">
+  <a-tooltip
+    class="tooltip-design"
+    :title="title"
+    :visible="visible"
+    overlay-class-name="tooltip-design-overlay"
+    v-bind="$attrs"
+    @visible-change="handleVisibleChange"
+  >
     <slot></slot>
   </a-tooltip>
 </template>
@@ -11,6 +18,32 @@
   export default {
     components: {
       ATooltip,
+    },
+    props: {
+      title: {
+        type: String,
+        default: '',
+      },
+      visible: {
+        type: Boolean,
+        default: false,
+      },
+    },
+    emits: ['update:visible'],
+    setup(props, { emit }) {
+      return {
+        emit,
+      }
+    },
+    watch: {
+      visible(newVisible) {
+        this.$emit('update:visible', newVisible)
+      },
+    },
+    methods: {
+      handleVisibleChange(visible) {
+        this.emit('update:visible', visible)
+      },
     },
   }
 </script>
