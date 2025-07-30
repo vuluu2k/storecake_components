@@ -165,10 +165,12 @@
 .input-phone-country-select {
   width: 46px;
   .ant-select-selector {
+    background: transparent !important;
     border: unset !important;
     padding: 0 !important;
     border-radius: unset !important;
     border-right: 1px solid var(--border-common) !important;
+    box-shadow: unset !important;
   }
 }
 
