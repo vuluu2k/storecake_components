@@ -1,0 +1,1 @@
+import{b as f}from"./default-Go8UtYB7.js";var n=function(a,t){var o=f({},a);return Object.keys(t).forEach(function(r){var e=o[r];if(e)e.type||e.default?e.default=t[r]:e.def?e.def(t[r]):o[r]={type:e,default:t[r]};else throw new Error("not have ".concat(r," prop"))}),o};export{n as i};
