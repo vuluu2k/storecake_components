@@ -55,7 +55,7 @@ export const Default: Story = {
     classes: '',
     placeholder: '',
     size: 'md',
-    label: '',
+    label: 'Username',
     labelInfo: '',
     questionInfo: '',
     isError: false,
@@ -73,19 +73,19 @@ export const Default: Story = {
 
 export const Sm: Story = {
   args: {
-    label: 'Input',
     size: 'sm',
+    label: 'Username',
   },
 }
 export const Md: Story = {
   args: {
-    label: 'Input',
     size: 'md',
+    label: 'Username',
   },
 }
 export const Lg: Story = {
   args: {
-    label: 'Input',
     size: 'lg',
+    label: 'Username',
   },
 }

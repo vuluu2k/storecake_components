@@ -38,7 +38,7 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    label: 'Button',
+    label: 'Click me!',
     loading: false,
     type: 'primary',
     size: 'md',
@@ -50,85 +50,73 @@ export const Default: Story = {
 }
 export const Primary: Story = {
   args: {
-    label: 'Button',
     type: 'primary',
-    label: Button,
+    label: 'Click me!',
   },
 }
 export const Secondary: Story = {
   args: {
-    label: 'Button',
     type: 'secondary',
-    label: Button,
+    label: 'Click me!',
   },
 }
 export const Gray: Story = {
   args: {
-    label: 'Button',
     type: 'gray',
-    label: Button,
+    label: 'Click me!',
   },
 }
 export const Info: Story = {
   args: {
-    label: 'Button',
     type: 'info',
-    label: Button,
+    label: 'Click me!',
   },
 }
 export const Warning: Story = {
   args: {
-    label: 'Button',
     type: 'warning',
-    label: Button,
+    label: 'Click me!',
   },
 }
 export const Black: Story = {
   args: {
-    label: 'Button',
     type: 'black',
-    label: Button,
+    label: 'Click me!',
   },
 }
 export const Gold: Story = {
   args: {
-    label: 'Button',
     type: 'gold',
-    label: Button,
+    label: 'Click me!',
   },
 }
 export const Error: Story = {
   args: {
-    label: 'Button',
     type: 'error',
-    label: Button,
+    label: 'Click me!',
   },
 }
 export const Danger: Story = {
   args: {
-    label: 'Button',
     type: 'danger',
-    label: Button,
+    label: 'Click me!',
   },
 }
 export const Sm: Story = {
   args: {
-    label: 'Button',
     size: 'sm',
-    label: 'Button',
+    label: 'Click me!',
   },
 }
 export const Md: Story = {
   args: {
-    label: 'Button',
     size: 'md',
-    label: 'Button',
+    label: 'Click me!',
   },
 }
 export const Lg: Story = {
   args: {
-    label: 'Button',
     size: 'lg',
-    label: 'Button',
+    label: 'Click me!',
   },
 }

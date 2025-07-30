@@ -72,7 +72,9 @@ async function genStoryFile(componentPath: string) {
 
   const argDefault = { ...args }
 
-  if (componentName == 'Button') argsAdd.label = 'Button'
+  if (componentName == 'Button') argsAdd.label = 'Click me!'
+
+  if (componentName == 'Input') argsAdd.label = 'Username'
 
   if (componentName == 'Badge') argsAdd.count = 1
 
@@ -101,11 +103,10 @@ async function genStoryFile(componentPath: string) {
   const typeStories = types.map((type) => {
     return `export const ${type.charAt(0).toUpperCase() + type.slice(1)}: Story = {
       args: {
-        ${keyArgs.includes('label') ? `label: '${componentName}',` : ''}
         type: '${type}',
         ${Object.keys(argsAdd)
-          .map((key) => `${key}: ${argsAdd[key]},`)
-          .join('')}
+          .map((key) => `${key}: ${JSON.stringify(argsAdd[key])}`)
+          .join(',')}
       },
     };`
   })
@@ -113,11 +114,10 @@ async function genStoryFile(componentPath: string) {
   const sizeStories = sizes.map((size) => {
     return `export const ${size.charAt(0).toUpperCase() + size.slice(1)}: Story = {
       args: {
-        ${keyArgs.includes('label') ? `label: '${componentName}',` : ''}
         size: '${size}',
         ${Object.keys(argsAdd)
-          .map((key) => `${key}: ${JSON.stringify(argsAdd[key])},`)
-          .join('')}
+          .map((key) => `${key}: ${JSON.stringify(argsAdd[key])}`)
+          .join(',')}
       },
     };`
   })

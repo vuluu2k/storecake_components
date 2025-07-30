@@ -28,19 +28,16 @@ export const Default: Story = {
 
 export const Sm: Story = {
   args: {
-    label: 'Checkbox',
     size: 'sm',
   },
 }
 export const Md: Story = {
   args: {
-    label: 'Checkbox',
     size: 'md',
   },
 }
 export const Lg: Story = {
   args: {
-    label: 'Checkbox',
     size: 'lg',
   },
 }
