@@ -26,5 +26,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { sKey: 'key', sValue: 'value', direction: 'horizontal', useAll: false },
+  args: {
+    options: [
+      { key: '1', value: 'Option 1' },
+      { key: '2', value: 'Option 2' },
+      { key: '3', value: 'Option 3' },
+    ],
+    sKey: 'key',
+    sValue: 'value',
+    direction: 'horizontal',
+    useAll: false,
+  },
 }

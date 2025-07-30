@@ -1,0 +1,81 @@
+.input-money-design {
+  &.ant-input-number-group-wrapper {
+    border-radius: var(--round-common, 6px) !important;
+    border: 1px solid var(--border-common);
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+    @include text-design-body-regular;
+
+    input {
+      padding: 0 8px;
+      ::placeholder {
+        @include placeholder-design;
+      }
+    }
+
+    .ant-input-number-input {
+      @include text-design-body-regular;
+    }
+
+    &:hover {
+      border-color: var(--color-border-brand, #108b67) !important;
+    }
+
+    &:focus,
+    &:focus-within {
+      border-color: var(--color-border-brand, #108b67) !important;
+      box-shadow: 0px 0px 0px 2px var(--color-box-shadow-primary) !important;
+    }
+
+    .ant-input-number,
+    .ant-input-number-group-addon {
+      border: unset;
+      @include text-design-body-neutral;
+    }
+
+    .ant-input-number {
+      border-radius: var(--round-common, 6px) 0 0 var(--round-common, 6px);
+      border-right: unset;
+      background-color: transparent;
+    }
+
+    .ant-input-number-focused {
+      box-shadow: unset;
+    }
+
+    .ant-input-number-group-addon {
+      border-radius: 0 var(--round-common, 6px) var(--round-common, 6px) 0;
+      background-color: transparent;
+      padding: 0 8px;
+    }
+
+    &.lg {
+      height: var(--size-lg, 36px);
+    }
+
+    &.md {
+      height: var(--size-md, 32px);
+    }
+
+    &.sm {
+      height: var(--size-sm, 28px);
+    }
+    &.sm {
+      height: var(--size-sm, 28px);
+    }
+
+    &.text-end .ant-input-number-input {
+      text-align: end;
+    }
+  }
+  &.disabled {
+    opacity: unset;
+    background: var(--color-bg-disabled, #e5e5e5);
+    border: 1px solid var(--color-border-neutral-primary, #dadddc);
+    .ant-input-number-group-addon {
+      opacity: 0.3;
+    }
+  }
+}

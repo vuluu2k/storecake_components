@@ -78,6 +78,22 @@ async function genStoryFile(componentPath: string) {
 
   if (componentName == 'Tooltip') argsAdd.title = 'Storecake top 1 vietnam'
 
+  if (keyArgs.includes('options'))
+    argsAdd.options = [
+      {
+        key: '1',
+        value: 'Option 1',
+      },
+      {
+        key: '2',
+        value: 'Option 2',
+      },
+      {
+        key: '3',
+        value: 'Option 3',
+      },
+    ]
+
   const defaultStory = `export const Default: Story = {
     args: ${JSON.stringify({ ...argDefault, ...argsAdd })},
   };`
@@ -100,7 +116,7 @@ async function genStoryFile(componentPath: string) {
         ${keyArgs.includes('label') ? `label: '${componentName}',` : ''}
         size: '${size}',
         ${Object.keys(argsAdd)
-          .map((key) => `${key}: ${argsAdd[key]},`)
+          .map((key) => `${key}: ${JSON.stringify(argsAdd[key])},`)
           .join('')}
       },
     };`

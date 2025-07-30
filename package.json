@@ -31,14 +31,16 @@
     "build:vue": "rollup -c && rollup -c --environment MINIFY",
     "build:vue:watch": "rollup -c --watch",
     "build:style": "sass --no-charset ./src/styles/index.scss | node ./build/print-banner.js > dist/storecake-components.css && cleancss -o dist/storecake-components.min.css dist/storecake-components.css",
-    "build:lib": "rimraf dist && npm run build:vue && npm run build:style"
+    "build:lib": "rimraf dist && npm run build:vue && npm run build:style",
+    "prettier": "prettier --write src/**/*.{js,jsx,ts,tsx,vue}"
   },
   "dependencies": {
     "vue": "^3.5.17"
   },
   "peerDependencies": {
     "@phosphor-icons/vue": "^2.2.1",
-    "ant-design-vue": "^3.2.12"
+    "ant-design-vue": "^3.2.12",
+    "lodash": "^4.17.21"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,vue}": [

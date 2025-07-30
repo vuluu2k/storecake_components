@@ -115,20 +115,20 @@ export const Sm: Story = {
   args: {
     label: 'Button',
     size: 'sm',
-    label: Button,
+    label: 'Button',
   },
 }
 export const Md: Story = {
   args: {
     label: 'Button',
     size: 'md',
-    label: Button,
+    label: 'Button',
   },
 }
 export const Lg: Story = {
   args: {
     label: 'Button',
     size: 'lg',
-    label: Button,
+    label: 'Button',
   },
 }

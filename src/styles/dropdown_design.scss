@@ -1,0 +1,135 @@
+// dropdown component
+.dropdown-design {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+
+  &-icon {
+    width: 20px;
+    height: 20px;
+    color: #808587;
+  }
+
+  &:hover {
+    background: var(--color-bg-hover);
+  }
+}
+
+.dropdown-design-overlay {
+  --width-icon: 16px;
+  $sizes: (
+    'md': (
+      --item-padding-y: 7px,
+      --item-padding-x: 8px,
+      --item-font-size: 14px,
+    ),
+    'sm': (
+      --item-padding-y: 5px,
+      --item-padding-x: 6px,
+      --item-font-size: 12px,
+    ),
+  );
+
+  @each $size, $value in $sizes {
+    &.#{$size} {
+      @each $key, $value in $value {
+        #{$key}: #{$value};
+      }
+    }
+  }
+
+  border-radius: var(--round-common);
+  background: var(--color-bg-white, #fff);
+  border: unset;
+  box-shadow: var(--box-shadow);
+  z-index: calc(1050 + var(--z-index));
+
+  .ant-dropdown-menu {
+    border-radius: var(--round-common, 6px);
+    padding: 8px;
+    box-shadow: unset;
+  }
+
+  .dropdown-design-submenu {
+    background: transparent;
+    .ant-dropdown-menu-vertical {
+      top: 0 !important;
+      left: 4px;
+      box-shadow:
+        0px 0px var(--32, 32px) 0px var(--color-shadow-neutral-light, rgba(0, 0, 0, 0.06)),
+        0px var(--4, 4px) var(--20, 20px) -8px var(--color-shadow-neutral-medium, rgba(0, 0, 0, 0.11));
+    }
+  }
+
+  .ant-dropdown-menu-submenu-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      width: var(--width-icon);
+      height: var(--width-icon);
+    }
+  }
+
+  .ant-dropdown-menu-title-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .ant-dropdown-menu-item {
+    padding: 0 !important;
+  }
+
+  .ant-dropdown-menu-submenu-vertical,
+  .ant-dropdown-menu-item,
+  .dropdown-design-item {
+    cursor: pointer;
+    @include text-design-body-regular;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    font-size: var(--item-font-size);
+    padding: var(--item-padding-y) var(--item-padding-x);
+    width: 100%;
+    transition: all 0.3s ease;
+
+    svg {
+      width: var(--width-icon);
+      height: var(--width-icon);
+    }
+
+    &:hover {
+      background: var(--color-bg-hover);
+    }
+
+    &.is_active {
+      background-color: var(--color-bg-active);
+
+      .ant-dropdown-menu-submenu-title:hover,
+      .ant-dropdown-menu-title-content:hover {
+        background-color: var(--color-bg-active);
+      }
+    }
+  }
+
+  .ant-dropdown-menu-submenu-title {
+    color: var(--color-text-body, #494c4e);
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    padding: 0;
+
+    &:hover {
+      background: var(--color-bg-gray, #f3f4f4);
+    }
+  }
+}
