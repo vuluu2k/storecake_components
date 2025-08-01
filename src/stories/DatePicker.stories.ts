@@ -1,19 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite';
-    
-    import DatePicker from '../components/DatePicker.vue'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-    const meta = {
-      title: 'Auto/DatePicker',
-      component: DatePicker,
-      tags: ['autodocs'],
-      argTypes: {"classes":{"control":"text","description":"Classes of the DatePicker"},"value":{"control":"text","description":"Property value of the DatePicker"}},
-      args: {"classes":"","value":""},
-    } satisfies Meta<typeof DatePicker>;
+import DatePicker from '../components/DatePicker.vue'
 
-    export default meta;
+const meta = {
+  title: 'Data Entry/DatePicker',
+  component: DatePicker,
+  tags: ['autodocs'],
+  argTypes: {
+    classes: { control: 'text', description: 'Classes of the DatePicker' },
+    value: { control: 'text', description: 'Property value of the DatePicker' },
+  },
+  args: { classes: '', value: '' },
+} satisfies Meta<typeof DatePicker>
 
-    type Story = StoryObj<typeof meta>;
+export default meta
 
-    export const Default: Story = {
-    args: {"classes":"","value":""},
-  };
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: { classes: '', value: '' },
+}

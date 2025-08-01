@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Select from '../components/Select.vue'
 
 const meta = {
-  title: 'Auto/Select',
+  title: 'Data Entry/Select',
   component: Select,
   tags: ['autodocs'],
   argTypes: {

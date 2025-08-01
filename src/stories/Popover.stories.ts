@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Popover from '../components/Popover.vue'
 
 const meta = {
-  title: 'Auto/Popover',
+  title: 'Data Display/Popover',
   component: Popover,
   tags: ['autodocs'],
   argTypes: {

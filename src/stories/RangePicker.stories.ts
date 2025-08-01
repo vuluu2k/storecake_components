@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import RangePicker from '../components/RangePicker.vue'
 
 const meta = {
-  title: 'Auto/RangePicker',
+  title: 'Data Entry/RangePicker',
   component: RangePicker,
   tags: ['autodocs'],
   argTypes: {},

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Radio from '../components/Radio.vue'
 
 const meta = {
-  title: 'Auto/Radio',
+  title: 'Data Entry/Radio',
   component: Radio,
   tags: ['autodocs'],
   argTypes: {

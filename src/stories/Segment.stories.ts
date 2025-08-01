@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Segment from '../components/Segment.vue'
 
 const meta = {
-  title: 'Auto/Segment',
+  title: 'Data Display/Segment',
   component: Segment,
   tags: ['autodocs'],
   argTypes: {

@@ -5,9 +5,9 @@
       :class="['input-label-design', { 'input-label-design-error': isError, 'input-label-design-link': isLink }]"
     >
       <span>{{ label }}</span>
-      <a-tooltip :title="labelInfo">
+      <Tooltip :title="labelInfo">
         <PhInfo v-if="labelInfo" weight="fill" />
-      </a-tooltip>
+      </Tooltip>
     </label>
     <a-textarea
       v-bind="{ ...$attrs, class: undefined }"
@@ -36,11 +36,16 @@
 </template>
 
 <script>
+  import Tooltip from './Tooltip.vue'
   import { debounce } from 'lodash'
   import { PhInfo } from '@phosphor-icons/vue'
+  import { Textarea as ATextarea } from 'ant-design-vue'
+  import 'ant-design-vue/lib/input/style/css'
   export default {
     components: {
       PhInfo,
+      Tooltip,
+      ATextarea,
     },
     inheritAttrs: false,
     props: {

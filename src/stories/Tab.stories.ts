@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Tab from '../components/Tab.vue'
 
 const meta = {
-  title: 'Auto/Tab',
+  title: 'Navigation/Tab',
   component: Tab,
   tags: ['autodocs'],
   argTypes: {},

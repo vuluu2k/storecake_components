@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import InputSearch from '../components/InputSearch.vue'
 
 const meta = {
-  title: 'Auto/InputSearch',
+  title: 'Data Entry/InputSearch',
   component: InputSearch,
   tags: ['autodocs'],
   argTypes: {

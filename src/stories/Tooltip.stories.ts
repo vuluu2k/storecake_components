@@ -1,19 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite';
-    
-    import Tooltip from '../components/Tooltip.vue'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-    const meta = {
-      title: 'Auto/Tooltip',
-      component: Tooltip,
-      tags: ['autodocs'],
-      argTypes: {"title":{"control":"text","description":"Property title of the Tooltip"},"visible":{"control":"boolean","description":"Property visible of the Tooltip"}},
-      args: {"title":"","visible":false},
-    } satisfies Meta<typeof Tooltip>;
+import Tooltip from '../components/Tooltip.vue'
 
-    export default meta;
+const meta = {
+  title: 'Data Display/Tooltip',
+  component: Tooltip,
+  tags: ['autodocs'],
+  argTypes: {
+    title: { control: 'text', description: 'Property title of the Tooltip' },
+    visible: { control: 'boolean', description: 'Property visible of the Tooltip' },
+  },
+  args: { title: '', visible: false },
+} satisfies Meta<typeof Tooltip>
 
-    type Story = StoryObj<typeof meta>;
+export default meta
 
-    export const Default: Story = {
-    args: {"title":"Storecake top 1 vietnam","visible":false},
-  };
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: { title: 'Storecake top 1 vietnam', visible: false },
+}

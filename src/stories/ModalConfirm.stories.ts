@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import ModalConfirm from '../components/ModalConfirm.vue'
 
 const meta = {
-  title: 'Auto/ModalConfirm',
+  title: 'Feedback/ModalConfirm',
   component: ModalConfirm,
   tags: ['autodocs'],
   argTypes: {

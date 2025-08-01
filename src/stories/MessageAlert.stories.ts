@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import MessageAlert from '../components/MessageAlert.vue'
 
 const meta = {
-  title: 'Auto/MessageAlert',
+  title: 'Feedback/MessageAlert',
   component: MessageAlert,
   tags: ['autodocs'],
   argTypes: {

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import InputWeight from '../components/InputWeight.vue'
 
 const meta = {
-  title: 'Auto/InputWeight',
+  title: 'Data Entry/InputWeight',
   component: InputWeight,
   tags: ['autodocs'],
   argTypes: {

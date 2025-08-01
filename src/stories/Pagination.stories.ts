@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Pagination from '../components/Pagination.vue'
 
 const meta = {
-  title: 'Auto/Pagination',
+  title: 'Navigation/Pagination',
   component: Pagination,
   tags: ['autodocs'],
   argTypes: {

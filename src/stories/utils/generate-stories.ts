@@ -7,6 +7,56 @@ import { extractPropsFromVueFile } from './extract-props'
 const componentsDir = path.resolve(process.cwd(), 'src/components')
 const storiesDir = path.resolve(process.cwd(), 'src/stories')
 
+const GENERAL = ['Button']
+
+const LAYOUT = ['Divider']
+
+const NAVIGATION = ['Dropdown', 'Menu', 'Pagination', 'Tab', 'Tabs', 'Sidebar']
+
+const DATA_ENTRY = [
+  'AutoComplete',
+  'Checkbox',
+  'Radio',
+  'Select',
+  'SelectOption',
+  'Input',
+  'InputMoney',
+  'InputWeight',
+  'InputSearch',
+  'InputPhoneCountry',
+  'Switch',
+  'TextArea',
+  'CheckboxGroup',
+  'RadioGroup',
+  'DatePicker',
+  'RangePicker',
+]
+
+const DATA_DISPLAY = [
+  'Badge',
+  'Tags',
+  'Tooltip',
+  'Popover',
+  'Avatar',
+  'Image',
+  'Segment',
+  'Segmented',
+  'Status',
+  'Table',
+  'Empty',
+]
+
+const FEEDBACK = ['MessageAlert', 'Modal', 'ModalConfirm', 'Alert', 'Progress', 'LogoSpinning']
+
+const TITLE_BAR = {
+  General: GENERAL,
+  Layout: LAYOUT,
+  Navigation: NAVIGATION,
+  'Data Entry': DATA_ENTRY,
+  'Data Display': DATA_DISPLAY,
+  Feedback: FEEDBACK,
+}
+
 function normalizeImportPath(from: string, to: string) {
   let rel = path.relative(path.dirname(from), to).replace(/\\/g, '/')
   if (!rel.startsWith('.')) {
@@ -26,9 +76,7 @@ async function genStoryFile(componentPath: string) {
   const relativePath = path.relative(componentsDir, componentPath)
   const componentName = path.basename(componentPath, '.vue')
   const storyPath = path.join(storiesDir, relativePath).replace(/\.vue$/, '.stories.ts')
-
   const importPath = normalizeImportPath(storyPath, componentPath)
-  const titlePath = relativePath.replace(/\\/g, '/').replace(/\.vue$/, '')
   // Read and parse Vue component
   const fileContent = await fs.readFile(componentPath, 'utf-8')
   const propsData = await extractPropsFromVueFile(fileContent)
@@ -128,7 +176,7 @@ async function genStoryFile(componentPath: string) {
     import ${componentName} from '${importPath}'
 
     const meta = {
-      title: 'Auto/${titlePath}',
+      title: '${getTitle(componentName)}',
       component: ${componentName},
       tags: ['autodocs'],
       argTypes: ${JSON.stringify(argTypes)},
@@ -147,6 +195,12 @@ async function genStoryFile(componentPath: string) {
   await fs.mkdir(path.dirname(storyPath), { recursive: true })
   await fs.writeFile(storyPath, content, 'utf-8')
   console.log(`✅ Generated: ${storyPath}`)
+}
+
+function getTitle(componentName: string): string {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [key, _] = Object.entries(TITLE_BAR).find(([_, value]) => value.includes(componentName)) || ['Other', []]
+  return `${key}/${componentName}`
 }
 
 function getControl(type: string | string[], validator?: any[]): Record<string, any> {

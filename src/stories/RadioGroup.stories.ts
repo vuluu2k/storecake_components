@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import RadioGroup from '../components/RadioGroup.vue'
 
 const meta = {
-  title: 'Auto/RadioGroup',
+  title: 'Data Entry/RadioGroup',
   component: RadioGroup,
   tags: ['autodocs'],
   argTypes: {

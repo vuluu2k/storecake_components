@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Modal from '../components/Modal.vue'
 
 const meta = {
-  title: 'Auto/Modal',
+  title: 'Feedback/Modal',
   component: Modal,
   tags: ['autodocs'],
   argTypes: {

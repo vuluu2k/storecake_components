@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import SelectOption from '../components/SelectOption.vue'
 
 const meta = {
-  title: 'Auto/SelectOption',
+  title: 'Data Entry/SelectOption',
   component: SelectOption,
   tags: ['autodocs'],
   argTypes: {

@@ -1,19 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite';
-    
-    import InputPhoneCountry from '../components/InputPhoneCountry.vue'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-    const meta = {
-      title: 'Auto/InputPhoneCountry',
-      component: InputPhoneCountry,
-      tags: ['autodocs'],
-      argTypes: {"countryValue":{"control":"text","description":"Property countryValue of the InputPhoneCountry"}},
-      args: {"countryValue":"VN"},
-    } satisfies Meta<typeof InputPhoneCountry>;
+import InputPhoneCountry from '../components/InputPhoneCountry.vue'
 
-    export default meta;
+const meta = {
+  title: 'Data Entry/InputPhoneCountry',
+  component: InputPhoneCountry,
+  tags: ['autodocs'],
+  argTypes: { countryValue: { control: 'text', description: 'Property countryValue of the InputPhoneCountry' } },
+  args: { countryValue: 'VN' },
+} satisfies Meta<typeof InputPhoneCountry>
 
-    type Story = StoryObj<typeof meta>;
+export default meta
 
-    export const Default: Story = {
-    args: {"countryValue":"VN"},
-  };
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: { countryValue: 'VN' },
+}

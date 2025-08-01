@@ -1,19 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite';
-    
-    import Empty from '../components/Empty.vue'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-    const meta = {
-      title: 'Auto/Empty',
-      component: Empty,
-      tags: ['autodocs'],
-      argTypes: {"size":{"control":"number","description":"Size of the Empty"},"label":{"control":"text","description":"Label of the Empty"}},
-      args: {"size":97},
-    } satisfies Meta<typeof Empty>;
+import Empty from '../components/Empty.vue'
 
-    export default meta;
+const meta = {
+  title: 'Data Display/Empty',
+  component: Empty,
+  tags: ['autodocs'],
+  argTypes: {
+    size: { control: 'number', description: 'Size of the Empty' },
+    label: { control: 'text', description: 'Label of the Empty' },
+  },
+  args: { size: 97 },
+} satisfies Meta<typeof Empty>
 
-    type Story = StoryObj<typeof meta>;
+export default meta
 
-    export const Default: Story = {
-    args: {"size":97},
-  };
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: { size: 97 },
+}

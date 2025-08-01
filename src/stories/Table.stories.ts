@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import Table from '../components/Table.vue'
 
 const meta = {
-  title: 'Auto/Table',
+  title: 'Data Display/Table',
   component: Table,
   tags: ['autodocs'],
   argTypes: {

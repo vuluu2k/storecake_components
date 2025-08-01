@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import LogoSpinning from '../components/LogoSpinning.vue'
 
 const meta = {
-  title: 'Auto/LogoSpinning',
+  title: 'Feedback/LogoSpinning',
   component: LogoSpinning,
   tags: ['autodocs'],
   argTypes: {

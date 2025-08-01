@@ -1,50 +1,53 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite';
-    
-    import InputMoney from '../components/InputMoney.vue'
+import type { Meta, StoryObj } from '@storybook/vue3-vite'
 
-    const meta = {
-      title: 'Auto/InputMoney',
-      component: InputMoney,
-      tags: ['autodocs'],
-      argTypes: {"value":{"control":"number","description":"Property value of the InputMoney"},"size":{"control":"select","options":["xs","sm","md","lg","xl"],"description":"Size of the InputMoney"},"suffix":{"control":"text","description":"Property suffix of the InputMoney"},"currency":{"control":"text","description":"Property currency of the InputMoney"},"classes":{"control":"text","description":"Classes of the InputMoney"},"useDebounce":{"control":"boolean","description":"Property useDebounce of the InputMoney"},"require":{"control":"boolean","description":"Property require of the InputMoney"}},
-      args: {"value":0,"size":"md","suffix":"","currency":"VND","classes":"","useDebounce":false,"require":false},
-    } satisfies Meta<typeof InputMoney>;
+import InputMoney from '../components/InputMoney.vue'
 
-    export default meta;
+const meta = {
+  title: 'Data Entry/InputMoney',
+  component: InputMoney,
+  tags: ['autodocs'],
+  argTypes: {
+    value: { control: 'number', description: 'Property value of the InputMoney' },
+    size: { control: 'select', options: ['xs', 'sm', 'md', 'lg', 'xl'], description: 'Size of the InputMoney' },
+    suffix: { control: 'text', description: 'Property suffix of the InputMoney' },
+    currency: { control: 'text', description: 'Property currency of the InputMoney' },
+    classes: { control: 'text', description: 'Classes of the InputMoney' },
+    useDebounce: { control: 'boolean', description: 'Property useDebounce of the InputMoney' },
+    require: { control: 'boolean', description: 'Property require of the InputMoney' },
+  },
+  args: { value: 0, size: 'md', suffix: '', currency: 'VND', classes: '', useDebounce: false, require: false },
+} satisfies Meta<typeof InputMoney>
 
-    type Story = StoryObj<typeof meta>;
+export default meta
 
-    export const Default: Story = {
-    args: {"value":0,"size":"md","suffix":"","currency":"VND","classes":"","useDebounce":false,"require":false},
-  };
-    
-    export const Xs: Story = {
-      args: {
-        size: 'xs',
-        
-      },
-    };
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: { value: 0, size: 'md', suffix: '', currency: 'VND', classes: '', useDebounce: false, require: false },
+}
+
+export const Xs: Story = {
+  args: {
+    size: 'xs',
+  },
+}
 export const Sm: Story = {
-      args: {
-        size: 'sm',
-        
-      },
-    };
+  args: {
+    size: 'sm',
+  },
+}
 export const Md: Story = {
-      args: {
-        size: 'md',
-        
-      },
-    };
+  args: {
+    size: 'md',
+  },
+}
 export const Lg: Story = {
-      args: {
-        size: 'lg',
-        
-      },
-    };
+  args: {
+    size: 'lg',
+  },
+}
 export const Xl: Story = {
-      args: {
-        size: 'xl',
-        
-      },
-    };
+  args: {
+    size: 'xl',
+  },
+}

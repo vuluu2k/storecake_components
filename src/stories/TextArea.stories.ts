@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3-vite'
 import TextArea from '../components/TextArea.vue'
 
 const meta = {
-  title: 'Auto/TextArea',
+  title: 'Data Entry/TextArea',
   component: TextArea,
   tags: ['autodocs'],
   argTypes: {
