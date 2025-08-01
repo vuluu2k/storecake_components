@@ -18,7 +18,6 @@
 <script>
   import { PhCalendarBlank } from '@phosphor-icons/vue'
   import { DatePicker as ADatePicker } from 'ant-design-vue'
-  import 'ant-design-vue/lib/date-picker/style/css'
 
   export default {
     components: {

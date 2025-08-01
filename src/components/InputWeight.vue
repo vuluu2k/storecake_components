@@ -16,7 +16,6 @@
 
 <script>
   import { InputNumber as AInputNumber } from 'ant-design-vue'
-  import 'ant-design-vue/lib/input-number/style/css'
 
   export default {
     components: {

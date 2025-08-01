@@ -13,7 +13,6 @@
 
 <script>
   import { Tooltip as ATooltip } from 'ant-design-vue'
-  import 'ant-design-vue/lib/tooltip/style/css'
 
   export default {
     components: {

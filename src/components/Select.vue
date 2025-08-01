@@ -89,7 +89,6 @@
   import Tooltip from './Tooltip.vue'
   import { PhQuestion, PhCaretDown, PhCheck, PhX } from '@phosphor-icons/vue'
   import { Select as ASelect } from 'ant-design-vue'
-  import 'ant-design-vue/lib/select/style/css'
 
   export default {
     components: {

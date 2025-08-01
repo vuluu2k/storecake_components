@@ -24,7 +24,6 @@
 <script>
   import Select from './Select.vue'
   import { Pagination as APagination } from 'ant-design-vue'
-  import 'ant-design-vue/lib/pagination/style/css'
 
   export default {
     components: {

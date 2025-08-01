@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/vue3-vite'
+import 'ant-design-vue/dist/antd.css'
 import '@/styles/main.scss'
 
 const preview: Preview = {

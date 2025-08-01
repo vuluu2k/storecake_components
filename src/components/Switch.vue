@@ -10,7 +10,6 @@
 
 <script>
   import { Switch as ASwitch } from 'ant-design-vue'
-  import 'ant-design-vue/lib/switch/style/css'
 
   export default {
     components: {

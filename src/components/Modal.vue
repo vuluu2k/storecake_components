@@ -44,7 +44,6 @@
   import Button from './Button.vue'
   import { PhX } from '@phosphor-icons/vue'
   import { Modal as AModal } from 'ant-design-vue'
-  import 'ant-design-vue/lib/modal/style/css'
 
   export default {
     components: {

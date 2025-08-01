@@ -58,8 +58,6 @@
 
 <script>
   import { Popover as APopover, Menu as AMenu, MenuItem as AMenuItem, SubMenu as ASubMenu } from 'ant-design-vue'
-  import 'ant-design-vue/lib/popover/style/css'
-  import 'ant-design-vue/lib/menu/style/css'
   import { PhCaretRight } from '@phosphor-icons/vue'
 
   export default {

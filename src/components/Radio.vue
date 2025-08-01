@@ -12,7 +12,6 @@
 
 <script>
   import { Radio as ARadio } from 'ant-design-vue'
-  import 'ant-design-vue/lib/radio/style/css'
 
   export default {
     components: {

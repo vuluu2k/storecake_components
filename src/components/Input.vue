@@ -75,7 +75,6 @@
   import { debounce } from 'lodash'
   import { Tooltip as ATooltip, Input as AInput, Textarea as ATextarea } from 'ant-design-vue'
   import { PhInfo, PhQuestion, PhXCircle } from '@phosphor-icons/vue'
-  import 'ant-design-vue/lib/input/style/css'
 
   export default {
     components: {

@@ -17,7 +17,6 @@
 <script>
   import { PhCalendarBlank, PhArrowRight } from '@phosphor-icons/vue'
   import { RangePicker as ARangePicker } from 'ant-design-vue'
-  import 'ant-design-vue/lib/date-picker/style/css'
 
   export default {
     components: {

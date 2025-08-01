@@ -14,7 +14,6 @@
 
 <script>
   import { AutoComplete as AAutoComplete } from 'ant-design-vue'
-  import 'ant-design-vue/lib/auto-complete/style/css'
 
   export default {
     components: {

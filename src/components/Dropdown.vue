@@ -167,7 +167,6 @@
     PhArrowCounterClockwise,
   } from '@phosphor-icons/vue'
   import { Dropdown as ADropdown, Menu as AMenu, SubMenu as ASubMenu, MenuItem as AMenuItem } from 'ant-design-vue'
-  import 'ant-design-vue/lib/dropdown/style/css'
 
   export default {
     components: {

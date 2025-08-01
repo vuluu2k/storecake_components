@@ -25,7 +25,6 @@
   import allCountries from '@/utils/allCountries'
   import { convertVN } from '@/utils/common'
   import { Select as ASelect } from 'ant-design-vue'
-  import 'ant-design-vue/lib/select/style/css'
 
   export default {
     components: {

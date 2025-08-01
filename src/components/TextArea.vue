@@ -40,7 +40,6 @@
   import { debounce } from 'lodash'
   import { PhInfo } from '@phosphor-icons/vue'
   import { Textarea as ATextarea } from 'ant-design-vue'
-  import 'ant-design-vue/lib/input/style/css'
   export default {
     components: {
       PhInfo,

@@ -4,7 +4,6 @@
 
 <script>
   import { Progress as AProgress } from 'ant-design-vue'
-  import 'ant-design-vue/lib/progress/style/css'
 
   export default {
     components: {

@@ -21,7 +21,6 @@
   import debounce from 'lodash/debounce'
   import { currencyFormats } from '@/utils/currency'
   import { InputNumber as AInputNumber } from 'ant-design-vue'
-  import 'ant-design-vue/lib/input-number/style/css'
 
   export default {
     components: {
