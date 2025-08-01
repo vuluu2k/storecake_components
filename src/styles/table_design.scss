@@ -1,0 +1,334 @@
+.table-component {
+  .table-design {
+    --border-color: var(--color-neutral-200);
+    --tr-hover-color: var(--color-bg-hover);
+    --tr-active-color: var(--color-bg-active);
+    --tr-header-color: var(--tr-table-header);
+    --border-th-color: var(--border-color);
+
+    .ant-table {
+      border-radius: var(--round-common, 6px) !important;
+      // border: 1px solid var(--border-common);
+      background-color: var(--color-bg-white, #fff);
+      overflow: hidden;
+      height: var(--height-table, 'inherit');
+
+      .ant-table-container {
+        height: inherit;
+      }
+
+      &.ant-table-has-fix-right {
+        .ant-table-container {
+          .ant-table-body {
+            overflow-y: scroll !important;
+          }
+        }
+      }
+
+      .ant-checkbox-wrapper {
+        .ant-checkbox {
+          .ant-checkbox-inner {
+            width: 16px;
+            height: 16px;
+            pointer-events: none;
+            &::after {
+              pointer-events: none;
+            }
+          }
+
+          &.ant-checkbox-checked {
+            &::after {
+              border-color: var(--color-border-brand);
+            }
+
+            .ant-checkbox-inner {
+              background-color: var(--color-bg-brand) !important;
+              border-color: var(--color-border-brand) !important;
+              &::after {
+                transition: unset;
+                background-image: url(https://content.pancake.vn/web-media/4b/15/63/75/6eb890ddb429b451f9cc4bac1c5cc358871af677eb5006f4d48b72bf.svg);
+                width: 12px;
+                height: 12px;
+                border: unset;
+                background-size: cover;
+                transform: unset;
+                top: 1px;
+                left: 1px;
+                right: 1px;
+                bottom: 1px;
+                opacity: 1;
+              }
+            }
+
+            &:hover {
+              .ant-checkbox-inner {
+                background-color: var(--color-bg-brand-hover) !important;
+                border-color: var(--color-bg-brand-hover) !important;
+              }
+            }
+          }
+
+          &.ant-checkbox-indeterminate {
+            .ant-checkbox-inner {
+              &::after {
+                background-color: var(--color-bg-brand);
+                border-radius: 2px;
+              }
+            }
+          }
+
+          .ant-checkbox-input:focus + .ant-checkbox-inner {
+            background-color: transparent;
+            border-color: var(--color-border-brand);
+          }
+
+          &:hover {
+            .ant-checkbox-inner {
+              background-color: transparent;
+              border-color: var(--color-border-brand);
+            }
+          }
+        }
+
+        &:hover {
+          .ant-checkbox-inner {
+            background-color: transparent;
+            border-color: var(--color-border-brand);
+          }
+        }
+      }
+
+      @mixin checkbox-style {
+        pointer-events: none;
+        .ant-checkbox-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .ant-checkbox {
+            pointer-events: auto;
+          }
+        }
+      }
+
+      .ant-table-container {
+        .ant-table-thead {
+          tr {
+            background: var(--tr-header-color) !important;
+            th {
+              height: unset !important;
+              background: var(--tr-header-color) !important;
+              border-bottom-color: var(--border-th-color) !important;
+              padding: 8px !important;
+              @include text-design-body-medium;
+
+              &.ant-table-selection-column {
+                .ant-table-selection {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+
+                  @include checkbox-style;
+                }
+              }
+
+              &.ant-table-cell-scrollbar {
+                box-shadow: unset;
+              }
+
+              &:first-child {
+                padding-left: 16px !important;
+              }
+
+              &:last-child {
+                padding-right: 16px !important;
+              }
+            }
+          }
+        }
+
+        .ant-table-body {
+          overflow-y: auto !important;
+          height: var(--body-height-table, inherit);
+          colgroup {
+            .ant-table-expand-icon-col {
+              width: 47px !important;
+            }
+          }
+        }
+
+        .ant-table-tbody {
+          tr.ant-table-row {
+            .table-tr-design-hover-show,
+            [hovertoggle] {
+              opacity: 0;
+              pointer-events: none;
+            }
+
+            button[hovertoggle] {
+              transform: scale(0.8);
+            }
+
+            td {
+              @include text-design-body-regular;
+              padding: 8px !important;
+              border-bottom-color: var(--border-color) !important;
+              transition: background 0.25s;
+
+              &.ant-table-cell-row-hover {
+                background-color: inherit !important;
+              }
+
+              &.ant-table-cell {
+                height: var(--column-height, unset) !important;
+              }
+
+              &.ant-table-selection-column {
+                @include checkbox-style;
+              }
+
+              &:first-child {
+                padding-left: 16px !important;
+                // border-color: transparent !important;
+                // &::after {
+                //   content: '';
+                //   width: calc(100% - 16px);
+                //   height: 1px;
+                //   background-color: var(--border-color);
+                //   position: absolute;
+                //   bottom: -1px;
+                //   right: 0;
+                // }
+              }
+
+              &:last-child {
+                padding-right: 16px !important;
+                // border-color: transparent !important;
+                // position: relative;
+                // &::after {
+                //   content: '';
+                //   width: calc(100% - 16px);
+                //   height: 1px;
+                //   background-color: var(--border-color);
+                //   position: absolute;
+                //   bottom: -1px;
+                //   left: 0;
+                // }
+              }
+            }
+
+            &:hover {
+              .table-tr-design-hover-show,
+              [hovertoggle] {
+                opacity: 1;
+                pointer-events: auto;
+              }
+
+              button[hovertoggle] {
+                transform: scale(1);
+              }
+
+              td {
+                background-color: var(--tr-hover-color) !important;
+              }
+            }
+
+            // &:focus,
+            // &:active,
+            // &:focus-within {
+            //   td {
+            //     background-color: var(--color-bg-brand-light) !important;
+            //   }
+            // }
+
+            // &:last-child {
+            //   td {
+            //     border-color: transparent !important;
+            //   }
+            // }
+
+            &.ant-table-row-selected {
+              td {
+                background-color: var(--tr-active-color) !important;
+              }
+            }
+          }
+        }
+      }
+
+      &.ant-table-empty {
+        .ant-table-container {
+          height: 100% !important;
+
+          .ant-table-content,
+          .ant-table-body {
+            height: var(--body-height-table, inherit) !important;
+
+            table {
+              height: 100% !important;
+
+              .ant-table-placeholder {
+                height: 100% !important;
+
+                .ant-table-cell {
+                  border-color: transparent !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .table-pagination {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &.not-height {
+    .table-design {
+      .ant-table-tbody {
+        tr.ant-table-row {
+          &:last-child {
+            td {
+              border-color: transparent !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.bordered {
+    .ant-table {
+      // --border-th-color: var(--color-neutral-200);
+      border: 1px solid var(--border-common);
+    }
+  }
+  &.ishastabs {
+    .ant-table {
+      border-radius: 0 6px 6px 6px !important;
+    }
+
+    .ant-table-container {
+      table {
+        > thead {
+          > tr:first-child {
+            th {
+              &:first-child {
+                border-top-left-radius: 0px;
+              }
+              &:last-child {
+                border-top-right-radius: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .rounded-common {
+      border-top-left-radius: 0px;
+    }
+  }
+}
