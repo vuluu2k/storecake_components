@@ -1,0 +1,129 @@
+@mixin sidebar-tab-style {
+  border-radius: var(--round-common, 6px);
+  padding: var(--spc-8, 8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  @include text-design-body-neutral-medium;
+  --color: #4f5552;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    color: var(--color);
+  }
+
+  &:hover {
+    background: var(--color-bg-hover);
+  }
+}
+
+@mixin sidebar-tab-style-active {
+  --background-active: var(--color-bg-brand-light);
+  border-radius: var(--round-common, 6px);
+  background: var(--background-active, #def9f3);
+  padding: var(--spc-8, 8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include text-design-link-medium;
+  svg {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
+    color: var(--color);
+  }
+  &:hover {
+    background: var(--background-active);
+  }
+}
+
+// sidebar left tab
+.sidebar-group-title {
+  @include text-design-neutral-light-600-sm;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.sidebar-tab-design-active {
+  @include sidebar-tab-style-active;
+}
+
+.sidebar-tab-design {
+  @include sidebar-tab-style;
+  margin-bottom: 4px;
+}
+
+.sidebar-sub-tab-design-active {
+  @include sidebar-tab-style-active;
+  padding-left: 32px;
+}
+
+.sidebar-sub-tab-design {
+  @include sidebar-tab-style;
+  padding-left: 32px;
+  margin-bottom: 4px;
+}
+
+.sidebar-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-design {
+  height: fit-content;
+
+  &.is-default {
+    background-color: var(--color-bg-white);
+    padding: 16px 12px;
+    border-radius: var(--round-common);
+  }
+
+  .sidebar-design-item {
+    transition: all 0.3s ease;
+    @include text-design-body-neutral-medium;
+    --color: #4f5552;
+    padding: 8px;
+    border-radius: var(--round-common);
+    cursor: pointer;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      min-width: 18px;
+      min-height: 18px;
+      color: var(--color);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background-color: var(--color-bg-hover);
+    }
+
+    &-active {
+      color: var(--color-content-brand);
+      background-color: var(--color-bg-brand-light);
+
+      svg {
+        color: var(--color-content-brand);
+      }
+
+      &:hover {
+        background-color: var(--color-bg-brand-light);
+      }
+    }
+  }
+}

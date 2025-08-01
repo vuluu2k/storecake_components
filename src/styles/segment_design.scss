@@ -1,0 +1,158 @@
+.segment-design {
+  display: flex;
+  gap: 2px;
+  border: 1px solid var(--border-common);
+  border-radius: var(--round-common);
+  height: var(--height);
+  padding: 1px;
+  cursor: pointer;
+  background-color: var(--color-bg-neutral-light);
+
+  .segment-design-item {
+    transition: all 0.3s ease;
+    padding: 6px 8px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-icon-gray);
+    }
+
+    &:hover {
+      background: var(--color-bg-gray);
+    }
+  }
+
+  .segment-design-item-active {
+    background: var(--color-bg-white);
+
+    &:hover {
+      background: var(--color-bg-white);
+    }
+  }
+
+  &.md {
+    --height: 32px;
+  }
+}
+
+.segmented-design {
+  display: flex;
+  gap: 2px;
+  border-radius: var(--round-common);
+  height: var(--height);
+  padding: 2px;
+  cursor: pointer;
+  background-color: var(--background-wrapper);
+
+  .segmented-design-item {
+    @include text-design-body-regular;
+    transition: all 0.3s ease;
+    padding: var(--padding-y, 8px) var(--padding-x, 12px);
+    border-radius: var(--round-common);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--font-size, 14px);
+
+    svg {
+      width: 16px;
+      height: 16px;
+      color: var(--color-icon-light-gray);
+    }
+
+    &:hover {
+      background: var(--color-bg-gray);
+    }
+
+    &.segmented-design-item-auto-fit {
+      justify-content: center;
+      flex: 1;
+    }
+  }
+
+  .segmented-design-item-active {
+    font-weight: 500;
+    background: var(--background-active);
+    color: var(--color-active);
+    box-shadow: var(--box-shadow-active, 'unset');
+
+    svg {
+      color: var(--icon-active);
+    }
+
+    &:hover {
+      background: var(--background-active);
+    }
+  }
+
+  $sizes: (
+    'xs': (
+      --height: 32px,
+      --font-size: 13px,
+      --padding-y: 8px,
+      --padding-x: 6px,
+    ),
+    'sm': (
+      --height: 36px,
+      --font-size: 14px,
+      --padding-y: 8px,
+      --padding-x: 12px,
+    ),
+    'md': (
+      --height: 40px,
+      --font-size: 14px,
+      --padding-y: 8px,
+      --padding-x: 12px,
+    ),
+    'lg': (
+      --height: 44px,
+      --font-size: 14px,
+      --padding-y: 8px,
+      --padding-x: 12px,
+    ),
+  );
+
+  $types: (
+    'primary': (
+      --background-wrapper: transparent,
+      --background-active: var(--color-bg-brand-light),
+      --color-active: var(--color-primary),
+      --icon-active: var(--color-icon-primary),
+    ),
+    'secondary': (
+      --background-wrapper: var(--color-bg-gray),
+      --background-active: var(--color-bg-white),
+      --color-active: var(--color-content-neutral-medium),
+      --icon-active: var(--color-content-neutral-medium),
+    ),
+    'primary_v2': (
+      --background-wrapper: var(--color-bg-neutral-primary),
+      --background-active: var(--color-bg-brand),
+      --color: var(--color-content-neutral-medium),
+      --color-active: #fff,
+      --icon-active: #fff,
+      --box-shadow-active: 0px 0px 16px 0px rgba(0, 0, 0, 0.1),
+    ),
+  );
+
+  @each $size, $value in $sizes {
+    &.#{$size} {
+      @each $key, $val in $value {
+        #{$key}: #{$val};
+      }
+    }
+  }
+
+  @each $type, $value in $types {
+    &.#{$type} {
+      @each $key, $val in $value {
+        #{$key}: #{$val};
+      }
+    }
+  }
+}

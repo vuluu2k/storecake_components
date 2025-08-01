@@ -1,6 +1,6 @@
 .range-picker-design {
-  border-radius: var(--round-common);
-  border-color: var(--border-common);
+  border-radius: var(--round-common) !important;
+  border-color: var(--border-common) !important;
 
   &.ant-picker-focused {
     border-color: var(--color-border-brand, #108b67) !important;

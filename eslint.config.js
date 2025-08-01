@@ -26,6 +26,7 @@ export default typescriptEslint.config(
       '@typescript-eslint/no-explicit-any': 'off',
       'vue/no-reserved-component-names': 'off',
       'vue/require-default-prop': 'off',
+      'vue/no-reserved-props': 'off',
     },
   },
   eslintConfigPrettier
