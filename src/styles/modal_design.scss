@@ -1,0 +1,223 @@
+.modal-design {
+  .ant-modal-content {
+    border-radius: var(--round-common) !important;
+    overflow: hidden;
+
+    .ant-modal-header {
+      border-radius: var(--round-common) var(--round-common) 0 0 !important;
+      padding: 12px 16px;
+      background-color: var(--color-bg-white, #fff);
+      border-bottom: unset;
+
+      .ant-modal-title {
+        @include text-design-h5-medium;
+      }
+    }
+    .ant-modal-close {
+      .ant-modal-close-x {
+        --size-width: 48px;
+        width: var(--size-width);
+        height: var(--size-width);
+        width: 43px;
+        line-height: var(--size-width);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .ant-modal-body {
+      padding: 16px;
+      background: var(--color-bg-modal);
+      max-height: calc(100vh - 200px);
+      overflow: auto;
+    }
+
+    .ant-modal-footer {
+      padding: 12px 16px;
+      border-top: unset;
+    }
+  }
+
+  .ant-select-selection-placeholder {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// modal-confirm component
+.modal-confirm-design {
+  .ant-modal-content {
+    border-radius: var(--round-common) !important;
+  }
+
+  .ant-modal-body {
+    padding: 24px 24px 16px 24px;
+    .modal-confirm-title {
+      @include text-design-h5-medium;
+    }
+
+    .modal-confirm-content {
+      @include text-design-neutral-light;
+    }
+
+    .modal-confirm-icon {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      min-height: 56px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--background-icon);
+
+      svg {
+        width: 40px;
+        height: 40px;
+        color: var(--color-icon);
+      }
+    }
+  }
+
+  .ant-modal-close {
+    .ant-modal-close-x {
+      --size-width: 42px;
+      width: var(--size-width);
+      height: var(--size-width);
+      line-height: var(--size-width);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  $types: (
+    'primary': (
+      --background-icon: var(--color-bg-brand-light),
+      --color-icon: var(--color-icon-primary),
+    ),
+    'info': (
+      --background-icon: var(--color-bg-info-light),
+      --color-icon: var(--color-icon-info),
+    ),
+    'warning': (
+      --background-icon: var(--color-bg-warning-light),
+      --color-icon: var(--color-icon-warning),
+    ),
+    'error': (
+      --background-icon: var(--color-bg-negative-light),
+      --color-icon: var(--color-icon-negative),
+    ),
+    'danger': (
+      --background-icon: var(--color-bg-negative-light),
+      --color-icon: var(--color-icon-negative),
+    ),
+  );
+
+  @each $type, $values in $types {
+    &.#{$type} {
+      @each $key, $value in $values {
+        #{$key}: $value;
+      }
+    }
+  }
+}
+
+.page-preview-modal {
+  // position: fixed;
+  // width: 100vw;
+  // height: 100vh;
+  // z-index: 1002;
+  // top: 0;
+  // left: 0;
+  max-width: 100%;
+  background: var(--color-bg-neutral-light);
+  // animation: showPagePreviewModal 0.3s ease-in-out;
+
+  .page-preview-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 24px;
+    background: var(--color-bg-white);
+    border-bottom: 1px solid var(--border-common);
+
+    .page-preview-toolbar-left {
+      flex: 1;
+    }
+
+    .page-preview-toolbar-center {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .page-preview-toolbar-right {
+      flex: 1;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  .page-preview-content {
+    height: calc(100vh - 48px);
+    overflow: hidden;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .page-preview-content-iframe {
+      width: 100%;
+      height: 100%;
+      transition: all 0.2s ease-in-out;
+
+      &.device {
+        iframe {
+          border-radius: 24px;
+          border: 10px solid var(--border-common);
+
+          html > * {
+            &::-webkit-scrollbar-track-piece {
+              background-color: inherit;
+            }
+            &::-webkit-scrollbar {
+              width: 8px;
+              padding: 2px;
+              height: 8px;
+              background: inherit;
+            }
+            &::-webkit-scrollbar-thumb {
+              background-color: var(--scrollbar-thumb);
+              border-radius: 8px;
+            }
+          }
+        }
+      }
+
+      iframe {
+        border-radius: 6px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+      }
+    }
+  }
+
+  @keyframes showPagePreviewModal {
+    0% {
+      opacity: 0;
+      scale: 0.8;
+    }
+    100% {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+}
+
+.ant-modal-mask {
+  background-color: rgba(0, 0, 0, 0.55);
+}

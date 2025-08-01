@@ -1,0 +1,72 @@
+.message-alert-design {
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  border-radius: var(--round-common);
+  padding: 8px 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  animation: showMessage 0.3s ease-in-out;
+
+  .message-alert-design-icon {
+    width: 24px;
+    height: 24px;
+    svg {
+      width: 24px;
+      height: 24px;
+      color: var(--icon-color);
+    }
+  }
+
+  .message-alert-design-content {
+    @include text-design-body-regular;
+    color: var(--text-color);
+  }
+
+  $types: (
+    'success': (
+      --background-color: var(--color-bg-positive-light),
+      --border-color: var(--color-border-positive),
+      --icon-color: var(--color-icon-positive),
+      --text-color: var(--color-content-positive),
+    ),
+    'info': (
+      --background-color: var(--color-bg-info-light),
+      --border-color: var(--color-border-info),
+      --icon-color: var(--color-icon-info),
+      --text-color: var(--color-content-info),
+    ),
+    'warning': (
+      --background-color: var(--color-bg-warning-light),
+      --border-color: var(--color-border-warning),
+      --icon-color: var(--color-icon-warning),
+      --text-color: var(--color-content-warning),
+    ),
+    'error': (
+      --background-color: var(--color-bg-negative-light),
+      --border-color: var(--color-border-negative),
+      --icon-color: var(--color-icon-negative),
+      --text-color: var(--color-content-negative),
+    ),
+  );
+
+  @each $type, $values in $types {
+    &.#{$type} {
+      @each $key, $value in $values {
+        #{$key}: $value;
+      }
+    }
+  }
+
+  @keyframes showMessage {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}

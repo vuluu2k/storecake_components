@@ -1,0 +1,89 @@
+.pagination-component {
+  --color-icon: #737373;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  .pagination-select {
+    min-width: 100px;
+    width: fit-content;
+  }
+
+  .pagination-design {
+    display: flex;
+    align-items: center;
+    .ant-pagination-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: var(--round-common);
+      background: transparent;
+      border-color: transparent;
+      a {
+        font-family: var(--font-family);
+        font-size: 14px;
+        line-height: 22px;
+        color: #000;
+      }
+
+      &.ant-pagination-item-active {
+        border-color: var(--color-border-brand);
+        background-color: var(--color-bg-white);
+
+        a {
+          color: var(--color-content-brand);
+          font-weight: 500;
+        }
+      }
+
+      &:hover {
+        background-color: var(--color-bg-white);
+        border-color: var(--color-border-brand);
+
+        a {
+          color: var(--color-content-brand);
+          font-weight: 500;
+        }
+      }
+    }
+
+    .ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-ellipsis,
+    .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis {
+      color: var(--color-icon);
+    }
+
+    .ant-pagination-jump-prev,
+    .ant-pagination-prev,
+    .ant-pagination-jump-next,
+    .ant-pagination-next {
+      svg {
+        color: var(--color-icon);
+      }
+      .ant-pagination-item-link {
+        border-radius: var(--round-common);
+        background-color: transparent;
+        border-color: transparent;
+      }
+      &:hover {
+        .ant-pagination-item-link {
+          background-color: var(--color-bg-white);
+          color: var(--color-content-brand);
+          border-color: var(--color-border-brand);
+        }
+        svg {
+          color: var(--color-content-brand);
+        }
+      }
+    }
+
+    &.sm {
+      .ant-pagination-prev,
+      .ant-pagination-next,
+      .ant-pagination-jump-prev,
+      .ant-pagination-jump-next,
+      .ant-pagination-item {
+        min-width: 28px;
+        height: 28px;
+      }
+    }
+  }
+}
