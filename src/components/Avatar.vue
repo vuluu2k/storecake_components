@@ -8,7 +8,7 @@
           <slot name="iconOnline"></slot>
         </div>
       </div>
-      <Status v-else :type="online ? 'success' : 'secondary'" :size="size / 4" />
+      <Status v-else :type="online ? 'success' : 'secondary'" :size="size / 2.8" />
     </sub>
   </div>
 </template>
