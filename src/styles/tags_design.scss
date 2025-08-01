@@ -1,0 +1,123 @@
+.tag {
+  $tag-types: (
+    'secondary': (
+      background-color: var(--color-bg-neutral-light),
+      color: var(--color-content-neutral-strong),
+      border-color: var(--color-border-neutral-strong),
+    ),
+    'primary': (
+      background-color: var(--color-bg-brand-light),
+      color: var(--color-content-brand),
+      border-color: var(--color-border-brand),
+    ),
+    'info': (
+      background-color: var(--color-bg-info-light),
+      color: var(--color-content-info),
+      border-color: var(--color-border-info),
+    ),
+    'success': (
+      background-color: var(--color-bg-positive-light),
+      color: var(--color-bg-brand),
+      border-color: var(--color-border-positive),
+    ),
+    'warning': (
+      background-color: var(--color-bg-warning-light),
+      color: var(--color-content-warning),
+      border-color: var(--color-border-warning),
+    ),
+    'error': (
+      background-color: var(--color-bg-negative-light),
+      color: var(--color-content-negative),
+      border-color: var(--color-border-negative),
+    ),
+  );
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+  border-radius: var(--round-4);
+  transition: background-color 0.3s;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  @each $type, $colors in $tag-types {
+    &.tag-#{$type} {
+      background-color: map-get($colors, background-color);
+      color: map-get($colors, color);
+
+      &.tag-bordered {
+        border-color: map-get($colors, border-color);
+      }
+    }
+  }
+
+  &.tag-bordered {
+    border-width: 1px;
+  }
+
+  &.tag-sm {
+    height: 20px;
+    padding: 0 6px;
+    font-weight: 400;
+    font-size: 12px;
+
+    &.tag-bordered {
+      padding: 5px;
+    }
+  }
+
+  &.tag-md {
+    height: 22px;
+    padding: 6px;
+    font-size: 14px;
+    font-weight: 400;
+
+    &.tag-bordered {
+      padding: 5px;
+    }
+  }
+
+  &.tag-lg {
+    height: 26px;
+    padding: 0 6px;
+    font-size: 14px;
+    font-weight: 400;
+
+    &.tag-bordered {
+      padding: 5px;
+    }
+  }
+
+  .tag-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .tag-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .tag-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+
+    .close-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+}
