@@ -1,1 +1,0 @@
-import{_ as f}from"./useConfigInject-CWOn-uB3.js";var n=function(a,t){var o=f({},a);return Object.keys(t).forEach(function(r){var e=o[r];if(e)e.type||e.default?e.default=t[r]:e.def?e.def(t[r]):o[r]={type:e,default:t[r]};else throw new Error("not have ".concat(r," prop"))}),o};export{n as i};
