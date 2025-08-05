@@ -10,7 +10,7 @@ const meta = {
     value: { control: 'number', description: 'Property value of the Input' },
     classes: { control: 'text', description: 'Classes of the Input' },
     placeholder: { control: 'text', description: 'Property placeholder of the Input' },
-    size: { control: 'select', options: ['sm', 'md', 'lg'], description: 'Size of the Input' },
+    size: { control: 'select', options: ['xs', 'sm', 'md', 'lg'], description: 'Size of the Input' },
     label: { control: 'text', description: 'Label of the Input' },
     labelInfo: { control: 'text', description: 'Property labelInfo of the Input' },
     questionInfo: { control: 'text', description: 'Property questionInfo of the Input' },
@@ -71,6 +71,12 @@ export const Default: Story = {
   },
 }
 
+export const Xs: Story = {
+  args: {
+    size: 'xs',
+    label: 'Username',
+  },
+}
 export const Sm: Story = {
   args: {
     size: 'sm',

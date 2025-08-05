@@ -61,6 +61,17 @@
       }
     }
 
+    &.xs {
+      height: var(--size-xs, 24px);
+      border-radius: var(--round-4, 4px);
+      font-size: 12px;
+      --line-height: 16px;
+
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+
     &-error {
       border-color: var(--color-border-negative, #e41e1e) !important;
 

@@ -14,7 +14,7 @@ const meta = {
       options: ['primary', 'secondary', 'gray', 'info', 'warning', 'black', 'gold', 'error', 'danger'],
       description: 'Type of the Button',
     },
-    size: { control: 'select', options: ['sm', 'md', 'lg'], description: 'Size of the Button' },
+    size: { control: 'select', options: ['xs', 'sm', 'md', 'lg'], description: 'Size of the Button' },
     danger: { control: 'boolean', description: 'Danger state of the Button' },
     ghost: { control: 'boolean', description: 'Ghost state of the Button' },
     disabled: { control: 'boolean', description: 'Disabled state of the Button' },
@@ -99,6 +99,12 @@ export const Error: Story = {
 export const Danger: Story = {
   args: {
     type: 'danger',
+    label: 'Click me!',
+  },
+}
+export const Xs: Story = {
+  args: {
+    size: 'xs',
     label: 'Click me!',
   },
 }

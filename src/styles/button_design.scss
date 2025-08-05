@@ -94,6 +94,12 @@
     --height: var(--size-sm, 28px);
   }
 
+  &.xs {
+    --icon-width: 16px;
+    --border-radius: var(--round-4, 4px);
+    --height: var(--size-xs, 24px);
+  }
+
   &.disabled {
     opacity: 0.5;
   }

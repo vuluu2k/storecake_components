@@ -63,7 +63,7 @@
         type: String,
         default: 'md',
         validator: (value) => {
-          return ['sm', 'md', 'lg'].includes(value)
+          return ['xs', 'sm', 'md', 'lg'].includes(value)
         },
       },
       danger: {
