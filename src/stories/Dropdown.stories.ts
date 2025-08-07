@@ -8,9 +8,18 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     value: { control: 'number', description: 'Property value of the Dropdown' },
-    options: { control: 'array', description: 'Property options of the Dropdown' },
-    sKey: { control: 'text', description: 'Select a property of option is Key' },
-    sValue: { control: 'text', description: 'Select a property of option is Value' },
+    options: {
+      control: 'array',
+      description: 'Property options of the Dropdown',
+    },
+    sKey: {
+      control: 'text',
+      description: 'Select a property of option is Key',
+    },
+    sValue: {
+      control: 'text',
+      description: 'Select a property of option is Value',
+    },
     trigger: {
       control: 'select',
       options: ['click', 'hover', 'contextmenu'],
@@ -21,11 +30,27 @@ const meta = {
       options: ['bottomLeft', 'bottom', 'bottomRight', 'topLeft', 'top', 'topRight'],
       description: 'Property placement of the Dropdown',
     },
-    overlayStyle: { control: 'text', description: 'Property overlayStyle of the Dropdown' },
-    extraItem: { control: 'text', description: 'Property extraItem of the Dropdown' },
-    size: { control: 'select', options: ['sm', 'md', 'lg'], description: 'Size of the Dropdown' },
+    overlayStyle: {
+      control: 'text',
+      description: 'Property overlayStyle of the Dropdown',
+    },
+    extraItem: {
+      control: 'text',
+      description: 'Property extraItem of the Dropdown',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size of the Dropdown',
+    },
   },
-  args: { value: '', sKey: 'key', sValue: 'value', placement: 'bottomLeft', size: 'md' },
+  args: {
+    value: '',
+    sKey: 'key',
+    sValue: 'value',
+    placement: 'bottomLeft',
+    size: 'md',
+  },
 } satisfies Meta<typeof Dropdown>
 
 export default meta

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-family, 'Roboto');
-  font-size: 14px;
+  font-size: var(--font-size);
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
@@ -73,31 +73,35 @@
   &.loading {
     cursor: default;
     pointer-events: none;
-    opacity: 0.7;
+    opacity: var(--opacity-loading, 0.7);
   }
 
   &.lg {
     --icon-width: 18px;
     --border-radius: var(--round-common, 6px);
     --height: var(--size-lg, 36px);
+    --font-size: 14px;
   }
 
   &.md {
     --icon-width: 18px;
     --border-radius: var(--round-common, 6px);
     --height: var(--size-md, 32px);
+    --font-size: 14px;
   }
 
   &.sm {
     --icon-width: 16px;
     --border-radius: var(--round-common, 6px);
     --height: var(--size-sm, 28px);
+    --font-size: 13px;
   }
 
   &.xs {
     --icon-width: 16px;
-    --border-radius: var(--round-4, 4px);
+    --border-radius: var(--round-4, 6px);
     --height: var(--size-xs, 24px);
+    --font-size: 12px;
   }
 
   &.disabled {
@@ -105,14 +109,14 @@
   }
 
   &.primary {
-    --background-color: var(--color-bg-brand, #108b67);
+    --background-color: var(--color-bg-brand, #108B67);
     --background-color-ghost: var(--color-bg-white, #ffffff);
     --border-color-ghost: var(--background-color);
     --text-color-ghost: var(--background-color);
     background: var(--background-color);
     border-color: var(--background-color);
     color: var(--color-content-inverse, #fff);
-
+    
     &::after {
       --antd-wave-shadow-color: var(--color-bg-brand-selected, #00856a);
     }
@@ -126,7 +130,7 @@
 
     &:active {
       --background-color-active: var(--color-bg-brand-selected, #00856a);
-      --background-color-ghost-active: var(--color-bg-brand, #108b67);
+      --background-color-ghost-active: var(--color-bg-brand, #108B67);
       background: var(--background-color-active);
       border-color: var(--background-color-active);
     }
@@ -138,18 +142,18 @@
     color: var(--color-content-neutral-primary, #37393b);
 
     &:hover {
-      border-color: var(--color-border-brand, #108b67);
-      color: var(--color-border-brand, #108b67);
+      border-color: var(--color-border-brand, #108B67);
+      color: var(--color-border-brand, #108B67);
     }
 
     &.disabled {
-      border-color: var(--color-border-gray, #c4c7c8);
+      border-color: var(--color-border-neutral-strong, #c4c7c8);
       color: var(--color-content-disabled, #c4c7c8);
     }
   }
 
   &.info {
-    --background-color: var(--color-bg-info, #3b82f6);
+    --background-color: var(--color-bg-info, #3B82F6);
     --background-color-ghost: var(--color-bg-white, #ffffff);
     --border-color-ghost: var(--background-color);
     --text-color-ghost: var(--background-color);
@@ -158,26 +162,26 @@
     color: var(--color-content-inverse, #fff);
 
     &::after {
-      --antd-wave-shadow-color: var(--color-bg-info-pressed, #1d64d8);
+      --antd-wave-shadow-color: var(--color-bg-info-pressed, #1D64D8);
     }
 
     &:hover {
-      --background-color-hover: var(--color-bg-info-hover, #609afa);
+      --background-color-hover: var(--color-bg-info-hover, #609AFA);
       --background-color-ghost-hover: var(--color-bg-brand-light, #e7f7f3);
       background: var(--background-color-hover);
       border-color: var(--background-color-hover);
     }
 
     &:active {
-      --background-color-active: var(--color-bg-info-pressed, #1d64d8);
-      --background-color-ghost-active: var(--color-bg-brand, #108b67);
+      --background-color-active: var(--color-bg-info-pressed, #1D64D8);
+      --background-color-ghost-active: var(--color-bg-brand, #108B67);
       background: var(--background-color-active);
       border-color: var(--background-color-active);
     }
   }
 
   &.warning {
-    --background-color: var(--color-bg-warning, #f98315);
+    --background-color: var(--color-bg-warning, #F98315);
     --background-color-ghost: var(--color-bg-white, #ffffff);
     --border-color-ghost: var(--background-color);
     --text-color-ghost: var(--background-color);
@@ -186,19 +190,19 @@
     color: var(--color-content-inverse, #fff);
 
     &::after {
-      --antd-wave-shadow-color: var(--color-bg-warning-pressed, #c24e0c);
+      --antd-wave-shadow-color: var(--color-bg-warning-pressed, #C24E0C);
     }
 
     &:hover {
-      --background-color-hover: var(--color-bg-warning-hover, #fba03c);
+      --background-color-hover: var(--color-bg-warning-hover, #FBA03C);
       --background-color-ghost-hover: var(--color-bg-brand-light, #e7f7f3);
       background: var(--background-color-hover);
       border-color: var(--background-color-hover);
     }
 
     &:active {
-      --background-color-active: var(--color-bg-warning-pressed, #c24e0c);
-      --background-color-ghost-active: var(--color-bg-brand, #108b67);
+      --background-color-active: var(--color-bg-warning-pressed, #C24E0C);
+      --background-color-ghost-active: var(--color-bg-brand, #108B67);
       background: var(--background-color-active);
       border-color: var(--background-color-active);
     }
@@ -233,7 +237,7 @@
   }
 
   &.gold {
-    --background-color: #cba135;
+    --background-color: #CBA135;
     --background-color-ghost: var(--color-bg-white);
     --border-color-ghost: var(--background-color);
     --text-color-ghost: var(--background-color);
@@ -246,14 +250,14 @@
     }
 
     &:hover {
-      --background-color-hover: #ddbb65;
+      --background-color-hover: #DDBB65;
       --background-color-ghost-hover: var(--color-bg-brand-light);
       background: var(--background-color-hover);
       border-color: var(--background-color-hover);
     }
 
     &:active {
-      --background-color-active: #b49a57;
+      --background-color-active: #B49A57;
       --background-color-ghost-active: var(--color-bg-brand);
       background: var(--background-color-active);
       border-color: var(--background-color-active);
@@ -265,7 +269,7 @@
     background: var(--background-color);
     border-color: var(--background-color);
     color: var(--color-content-neutral-primary);
-
+    
     &::after {
       --antd-wave-shadow-color: var(--color-bg-neutral-light);
     }
@@ -285,7 +289,7 @@
 
   &.error,
   &.danger {
-    --background-color: var(--color-bg-negative, #f63737);
+    --background-color: var(--color-bg-negative, #F63737);
     --background-color-ghost: var(--color-bg-negative-light);
     --border-color-ghost: var(--background-color);
     --text-color-ghost: var(--background-color);
@@ -294,19 +298,19 @@
     color: var(--color-content-inverse, #fff);
 
     &::after {
-      --antd-wave-shadow-color: var(--color-bg-negative-pressed, #c01515);
+      --antd-wave-shadow-color: var(--color-bg-negative-pressed, #C01515);
     }
 
     &:hover {
-      --background-color-hover: var(--color-bg-negative-hover, #fe6b6b);
+      --background-color-hover: var(--color-bg-negative-hover, #FE6B6B);
       --background-color-ghost-hover: var(--color-bg-negative-light, #e7f7f3);
       background: var(--background-color-hover);
       border-color: var(--background-color-hover);
     }
 
     &:active {
-      --background-color-active: var(--color-bg-negative-pressed, #c01515);
-      --background-color-ghost-active: var(--color-bg-negative, #108b67);
+      --background-color-active: var(--color-bg-negative-pressed, #C01515);
+      --background-color-ghost-active: var(--color-bg-negative, #108B67);
       background: var(--background-color-active);
       border-color: var(--background-color-active);
     }
@@ -335,3 +339,4 @@ a.button-design {
   line-height: 22px;
   padding-top: 5px !important;
 }
+  

@@ -1,20 +1,23 @@
 <template>
   <a-button
     :class="[
-      'button-design',
+      'button-design relative',
       type,
       size,
-      classes,
       {
-        danger: danger,
-        disabled: disabled,
-        loading: loading,
-        ghost: ghost,
+        danger,
+        disabled,
+        loading,
+        classes,
+        ghost,
         'only-icon': !$slots.default && !label && ($slots.icon || $slots.suffix),
         'has-icon': ($slots.icon || $slots.suffix) && ($slots.default || label) && !loading,
         'has-loading-with-icon': $slots.icon && loading,
       },
     ]"
+    :style="{
+      '--opacity-loading': opacityLoading,
+    }"
   >
     <span v-if="$slots.icon && !loading" class="button-design-icon">
       <slot v-if="!loading" name="icon"></slot>
@@ -34,22 +37,23 @@
 </template>
 
 <script>
-  import { Button as AButton } from 'ant-design-vue'
   import { PhCircleNotch } from '@phosphor-icons/vue'
-
   export default {
     components: {
-      AButton,
       PhCircleNotch,
     },
     props: {
       label: {
-        type: String,
+        type: [String, Number],
         default: '',
       },
       loading: {
         type: Boolean,
         default: false,
+      },
+      opacityLoading: {
+        type: Number,
+        default: 0.7,
       },
       type: {
         type: String,

@@ -7,12 +7,31 @@ const meta = {
   component: Pagination,
   tags: ['autodocs'],
   argTypes: {
-    size: { control: 'select', options: ['sm', 'md'], description: 'Size of the Pagination' },
-    pageSizeOptions: { control: 'array', description: 'Property pageSizeOptions of the Pagination' },
-    showSizeChanger: { control: 'boolean', description: 'Property showSizeChanger of the Pagination' },
-    total: { control: 'number', description: 'Property total of the Pagination' },
-    pageSize: { control: 'number', description: 'Property pageSize of the Pagination' },
-    current: { control: 'number', description: 'Property current of the Pagination' },
+    size: {
+      control: 'select',
+      options: ['sm', 'md'],
+      description: 'Size of the Pagination',
+    },
+    pageSizeOptions: {
+      control: 'array',
+      description: 'Property pageSizeOptions of the Pagination',
+    },
+    showSizeChanger: {
+      control: 'boolean',
+      description: 'Property showSizeChanger of the Pagination',
+    },
+    total: {
+      control: 'number',
+      description: 'Property total of the Pagination',
+    },
+    pageSize: {
+      control: 'number',
+      description: 'Property pageSize of the Pagination',
+    },
+    current: {
+      control: 'number',
+      description: 'Property current of the Pagination',
+    },
     attrs: { control: 'text', description: 'Property attrs of the Pagination' },
   },
   args: { size: 'sm', total: 10, pageSize: 10, current: 1 },

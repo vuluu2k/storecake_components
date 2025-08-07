@@ -7,16 +7,49 @@ const meta = {
   component: Segmented,
   tags: ['autodocs'],
   argTypes: {
-    value: { control: 'number', description: 'Property value of the Segmented' },
-    options: { control: 'array', description: 'Property options of the Segmented' },
-    sKey: { control: 'text', description: 'Select a property of option is Key' },
-    sValue: { control: 'text', description: 'Select a property of option is Value' },
-    size: { control: 'select', options: ['xs', 'sm', 'md', 'lg'], description: 'Size of the Segmented' },
-    type: { control: 'select', options: ['primary', 'secondary', 'primary_v2'], description: 'Type of the Segmented' },
-    isToggle: { control: 'boolean', description: 'Property isToggle of the Segmented' },
-    autoFit: { control: 'boolean', description: 'Property autoFit of the Segmented' },
+    value: {
+      control: 'number',
+      description: 'Property value of the Segmented',
+    },
+    options: {
+      control: 'array',
+      description: 'Property options of the Segmented',
+    },
+    sKey: {
+      control: 'text',
+      description: 'Select a property of option is Key',
+    },
+    sValue: {
+      control: 'text',
+      description: 'Select a property of option is Value',
+    },
+    size: {
+      control: 'select',
+      options: ['xs', 'sm', 'md', 'lg'],
+      description: 'Size of the Segmented',
+    },
+    type: {
+      control: 'select',
+      options: ['primary', 'secondary', 'primary_v2'],
+      description: 'Type of the Segmented',
+    },
+    isToggle: {
+      control: 'boolean',
+      description: 'Property isToggle of the Segmented',
+    },
+    autoFit: {
+      control: 'boolean',
+      description: 'Property autoFit of the Segmented',
+    },
   },
-  args: { sKey: 'key', sValue: 'value', size: 'md', type: 'primary', isToggle: false, autoFit: false },
+  args: {
+    sKey: 'key',
+    sValue: 'value',
+    size: 'md',
+    type: 'primary',
+    isToggle: false,
+    autoFit: false,
+  },
 } satisfies Meta<typeof Segmented>
 
 export default meta

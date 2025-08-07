@@ -8,8 +8,14 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     label: { control: 'text', description: 'Label of the Radio' },
-    subLabel: { control: 'text', description: 'Property subLabel of the Radio' },
-    disabled: { control: 'boolean', description: 'Disabled state of the Radio' },
+    subLabel: {
+      control: 'text',
+      description: 'Property subLabel of the Radio',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disabled state of the Radio',
+    },
   },
   args: { disabled: false },
 } satisfies Meta<typeof Radio>

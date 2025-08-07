@@ -7,7 +7,10 @@ const meta = {
   component: LogoSpinning,
   tags: ['autodocs'],
   argTypes: {
-    loading: { control: 'boolean', description: 'Loading state of the LogoSpinning' },
+    loading: {
+      control: 'boolean',
+      description: 'Loading state of the LogoSpinning',
+    },
     size: { control: 'number', description: 'Size of the LogoSpinning' },
   },
   args: { loading: false, size: 36 },

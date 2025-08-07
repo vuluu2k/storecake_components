@@ -6,7 +6,12 @@ const meta = {
   title: 'Data Entry/InputPhoneCountry',
   component: InputPhoneCountry,
   tags: ['autodocs'],
-  argTypes: { countryValue: { control: 'text', description: 'Property countryValue of the InputPhoneCountry' } },
+  argTypes: {
+    countryValue: {
+      control: 'text',
+      description: 'Property countryValue of the InputPhoneCountry',
+    },
+  },
   args: { countryValue: 'VN' },
 } satisfies Meta<typeof InputPhoneCountry>
 

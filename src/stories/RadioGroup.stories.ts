@@ -7,9 +7,18 @@ const meta = {
   component: RadioGroup,
   tags: ['autodocs'],
   argTypes: {
-    options: { control: 'array', description: 'Property options of the RadioGroup' },
-    sKey: { control: 'text', description: 'Select a property of option is Key' },
-    sValue: { control: 'text', description: 'Select a property of option is Value' },
+    options: {
+      control: 'array',
+      description: 'Property options of the RadioGroup',
+    },
+    sKey: {
+      control: 'text',
+      description: 'Select a property of option is Key',
+    },
+    sValue: {
+      control: 'text',
+      description: 'Select a property of option is Value',
+    },
     direction: {
       control: 'select',
       options: ['horizontal', 'vertical'],

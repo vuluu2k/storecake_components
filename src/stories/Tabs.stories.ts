@@ -8,14 +8,39 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     options: { control: 'array', description: 'Property options of the Tabs' },
-    sKey: { control: 'text', description: 'Select a property of option is Key' },
-    sValue: { control: 'text', description: 'Select a property of option is Value' },
-    size: { control: 'select', options: ['sm', 'md', 'lg'], description: 'Size of the Tabs' },
-    isSizeTabDivideEqually: { control: 'boolean', description: 'Property isSizeTabDivideEqually of the Tabs' },
-    maxHeight: { control: 'number', description: 'Property maxHeight of the Tabs' },
-    bordered: { control: 'boolean', description: 'Property bordered of the Tabs' },
+    sKey: {
+      control: 'text',
+      description: 'Select a property of option is Key',
+    },
+    sValue: {
+      control: 'text',
+      description: 'Select a property of option is Value',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size of the Tabs',
+    },
+    isSizeTabDivideEqually: {
+      control: 'boolean',
+      description: 'Property isSizeTabDivideEqually of the Tabs',
+    },
+    maxHeight: {
+      control: 'number',
+      description: 'Property maxHeight of the Tabs',
+    },
+    bordered: {
+      control: 'boolean',
+      description: 'Property bordered of the Tabs',
+    },
   },
-  args: { sKey: 'key', sValue: 'value', size: 'md', isSizeTabDivideEqually: false, bordered: false },
+  args: {
+    sKey: 'key',
+    sValue: 'value',
+    size: 'md',
+    isSizeTabDivideEqually: false,
+    bordered: false,
+  },
 } satisfies Meta<typeof Tabs>
 
 export default meta

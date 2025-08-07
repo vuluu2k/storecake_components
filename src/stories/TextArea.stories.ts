@@ -9,18 +9,49 @@ const meta = {
   argTypes: {
     value: { control: 'number', description: 'Property value of the TextArea' },
     classes: { control: 'text', description: 'Classes of the TextArea' },
-    placeholder: { control: 'text', description: 'Property placeholder of the TextArea' },
-    size: { control: 'select', options: ['sm', 'md', 'lg'], description: 'Size of the TextArea' },
+    placeholder: {
+      control: 'text',
+      description: 'Property placeholder of the TextArea',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size of the TextArea',
+    },
     label: { control: 'text', description: 'Label of the TextArea' },
-    labelInfo: { control: 'text', description: 'Property labelInfo of the TextArea' },
-    questionInfo: { control: 'text', description: 'Property questionInfo of the TextArea' },
-    isError: { control: 'boolean', description: 'Property isError of the TextArea' },
-    isLink: { control: 'boolean', description: 'Property isLink of the TextArea' },
-    message: { control: 'text', description: 'Property message of the TextArea' },
+    labelInfo: {
+      control: 'text',
+      description: 'Property labelInfo of the TextArea',
+    },
+    questionInfo: {
+      control: 'text',
+      description: 'Property questionInfo of the TextArea',
+    },
+    isError: {
+      control: 'boolean',
+      description: 'Property isError of the TextArea',
+    },
+    isLink: {
+      control: 'boolean',
+      description: 'Property isLink of the TextArea',
+    },
+    message: {
+      control: 'text',
+      description: 'Property message of the TextArea',
+    },
     id: { control: 'text', description: 'Property id of the TextArea' },
-    disabled: { control: 'boolean', description: 'Disabled state of the TextArea' },
-    allowClear: { control: 'boolean', description: 'Property allowClear of the TextArea' },
-    useDebounce: { control: 'boolean', description: 'Property useDebounce of the TextArea' },
+    disabled: {
+      control: 'boolean',
+      description: 'Disabled state of the TextArea',
+    },
+    allowClear: {
+      control: 'boolean',
+      description: 'Property allowClear of the TextArea',
+    },
+    useDebounce: {
+      control: 'boolean',
+      description: 'Property useDebounce of the TextArea',
+    },
   },
   args: {
     classes: '',

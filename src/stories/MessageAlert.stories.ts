@@ -12,7 +12,10 @@ const meta = {
       options: ['success', 'error', 'warning', 'info'],
       description: 'Type of the MessageAlert',
     },
-    message: { control: 'text', description: 'Property message of the MessageAlert' },
+    message: {
+      control: 'text',
+      description: 'Property message of the MessageAlert',
+    },
   },
   args: { type: 'success' },
 } satisfies Meta<typeof MessageAlert>

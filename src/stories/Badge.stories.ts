@@ -15,13 +15,36 @@ const meta = {
     },
     ghost: { control: 'boolean', description: 'Ghost state of the Badge' },
     dot: { control: 'boolean', description: 'Property dot of the Badge' },
-    overflowCount: { control: 'number', description: 'Property overflowCount of the Badge' },
-    size: { control: 'select', options: ['sm', 'md'], description: 'Size of the Badge' },
-    showZero: { control: 'boolean', description: 'Property showZero of the Badge' },
-    position: { control: 'text', description: 'Property position of the Badge' },
-    minLength: { control: 'number', description: 'Property minLength of the Badge' },
+    overflowCount: {
+      control: 'number',
+      description: 'Property overflowCount of the Badge',
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md'],
+      description: 'Size of the Badge',
+    },
+    showZero: {
+      control: 'boolean',
+      description: 'Property showZero of the Badge',
+    },
+    position: {
+      control: 'text',
+      description: 'Property position of the Badge',
+    },
+    minLength: {
+      control: 'number',
+      description: 'Property minLength of the Badge',
+    },
   },
-  args: { type: 'primary', ghost: false, dot: false, size: 'md', showZero: false, minLength: 1 },
+  args: {
+    type: 'primary',
+    ghost: false,
+    dot: false,
+    size: 'md',
+    showZero: false,
+    minLength: 1,
+  },
 } satisfies Meta<typeof Badge>
 
 export default meta
@@ -29,7 +52,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { count: 1, type: 'primary', ghost: false, dot: false, size: 'md', showZero: false, minLength: 1 },
+  args: {
+    count: 1,
+    type: 'primary',
+    ghost: false,
+    dot: false,
+    size: 'md',
+    showZero: false,
+    minLength: 1,
+  },
 }
 export const Secondary: Story = {
   args: {

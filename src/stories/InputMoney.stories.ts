@@ -7,15 +7,42 @@ const meta = {
   component: InputMoney,
   tags: ['autodocs'],
   argTypes: {
-    value: { control: 'number', description: 'Property value of the InputMoney' },
-    size: { control: 'select', options: ['xs', 'sm', 'md', 'lg', 'xl'], description: 'Size of the InputMoney' },
-    suffix: { control: 'text', description: 'Property suffix of the InputMoney' },
-    currency: { control: 'text', description: 'Property currency of the InputMoney' },
+    value: {
+      control: 'number',
+      description: 'Property value of the InputMoney',
+    },
+    size: {
+      control: 'select',
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      description: 'Size of the InputMoney',
+    },
+    suffix: {
+      control: 'text',
+      description: 'Property suffix of the InputMoney',
+    },
+    currency: {
+      control: 'text',
+      description: 'Property currency of the InputMoney',
+    },
     classes: { control: 'text', description: 'Classes of the InputMoney' },
-    useDebounce: { control: 'boolean', description: 'Property useDebounce of the InputMoney' },
-    require: { control: 'boolean', description: 'Property require of the InputMoney' },
+    useDebounce: {
+      control: 'boolean',
+      description: 'Property useDebounce of the InputMoney',
+    },
+    require: {
+      control: 'boolean',
+      description: 'Property require of the InputMoney',
+    },
   },
-  args: { value: 0, size: 'md', suffix: '', currency: 'VND', classes: '', useDebounce: false, require: false },
+  args: {
+    value: 0,
+    size: 'md',
+    suffix: '',
+    currency: 'VND',
+    classes: '',
+    useDebounce: false,
+    require: false,
+  },
 } satisfies Meta<typeof InputMoney>
 
 export default meta
@@ -23,7 +50,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  args: { value: 0, size: 'md', suffix: '', currency: 'VND', classes: '', useDebounce: false, require: false },
+  args: {
+    value: 0,
+    size: 'md',
+    suffix: '',
+    currency: 'VND',
+    classes: '',
+    useDebounce: false,
+    require: false,
+  },
 }
 
 export const Xs: Story = {

@@ -8,9 +8,15 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     value: { control: 'number', description: 'Property value of the Sidebar' },
-    options: { control: 'array', description: 'Property options of the Sidebar' },
+    options: {
+      control: 'array',
+      description: 'Property options of the Sidebar',
+    },
     label: { control: 'text', description: 'Label of the Sidebar' },
-    isDefault: { control: 'boolean', description: 'Property isDefault of the Sidebar' },
+    isDefault: {
+      control: 'boolean',
+      description: 'Property isDefault of the Sidebar',
+    },
   },
   args: { isDefault: true },
 } satisfies Meta<typeof Sidebar>

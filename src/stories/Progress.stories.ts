@@ -6,7 +6,13 @@ const meta = {
   title: 'Feedback/Progress',
   component: Progress,
   tags: ['autodocs'],
-  argTypes: { type: { control: 'select', options: ['primary'], description: 'Type of the Progress' } },
+  argTypes: {
+    type: {
+      control: 'select',
+      options: ['primary'],
+      description: 'Type of the Progress',
+    },
+  },
   args: {},
 } satisfies Meta<typeof Progress>
 

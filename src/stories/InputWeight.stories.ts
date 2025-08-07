@@ -7,8 +7,15 @@ const meta = {
   component: InputWeight,
   tags: ['autodocs'],
   argTypes: {
-    value: { control: 'number', description: 'Property value of the InputWeight' },
-    size: { control: 'select', options: ['xs', 'sm', 'md', 'lg', 'xl'], description: 'Size of the InputWeight' },
+    value: {
+      control: 'number',
+      description: 'Property value of the InputWeight',
+    },
+    size: {
+      control: 'select',
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      description: 'Size of the InputWeight',
+    },
     classes: { control: 'text', description: 'Classes of the InputWeight' },
   },
   args: { value: 0, size: 'md', classes: '' },

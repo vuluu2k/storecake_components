@@ -7,9 +7,18 @@ const meta = {
   component: InputSearch,
   tags: ['autodocs'],
   argTypes: {
-    value: { control: 'number', description: 'Property value of the InputSearch' },
-    useDebounce: { control: 'boolean', description: 'Property useDebounce of the InputSearch' },
-    placeholder: { control: 'text', description: 'Property placeholder of the InputSearch' },
+    value: {
+      control: 'number',
+      description: 'Property value of the InputSearch',
+    },
+    useDebounce: {
+      control: 'boolean',
+      description: 'Property useDebounce of the InputSearch',
+    },
+    placeholder: {
+      control: 'text',
+      description: 'Property placeholder of the InputSearch',
+    },
   },
   args: { value: '', useDebounce: false, placeholder: '' },
 } satisfies Meta<typeof InputSearch>

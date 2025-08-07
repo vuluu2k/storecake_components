@@ -2,6 +2,7 @@ import fs from 'fs/promises'
 import path from 'path'
 import fg from 'fast-glob'
 import chokidar from 'chokidar'
+import prettier from 'prettier'
 import { extractPropsFromVueFile } from './extract-props'
 
 const componentsDir = path.resolve(process.cwd(), 'src/components')
@@ -193,8 +194,23 @@ async function genStoryFile(componentPath: string) {
   `.trim()
 
   await fs.mkdir(path.dirname(storyPath), { recursive: true })
-  await fs.writeFile(storyPath, content, 'utf-8')
-  console.log(`✅ Generated: ${storyPath}`)
+
+  try {
+    // Format the content using Prettier API
+    const formattedContent = await prettier.format(content, {
+      filepath: storyPath,
+      parser: 'typescript',
+    })
+
+    // Write the formatted content to file
+    await fs.writeFile(storyPath, formattedContent, 'utf-8')
+    console.log(`✅ Generated and formatted: ${storyPath}`)
+  } catch (error) {
+    // If Prettier fails, write the unformatted content as fallback
+    await fs.writeFile(storyPath, content, 'utf-8')
+    console.error(`❌ Error formatting ${storyPath}:`, error)
+    console.log(`✅ Generated (unformatted): ${storyPath}`)
+  }
 }
 
 function getTitle(componentName: string): string {

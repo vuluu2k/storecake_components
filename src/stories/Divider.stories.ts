@@ -12,7 +12,10 @@ const meta = {
       options: ['horizontal', 'vertical'],
       description: 'Property direction of the Divider',
     },
-    height: { control: 'number', description: 'Property height of the Divider' },
+    height: {
+      control: 'number',
+      description: 'Property height of the Divider',
+    },
     width: { control: 'number', description: 'Property width of the Divider' },
     space: { control: 'number', description: 'Property space of the Divider' },
   },

@@ -7,10 +7,20 @@ const meta = {
   component: Alert,
   tags: ['autodocs'],
   argTypes: {
-    type: { control: 'select', options: ['info', 'warning', 'error'], description: 'Type of the Alert' },
-    buttonText: { control: 'text', description: 'Property buttonText of the Alert' },
+    type: {
+      control: 'select',
+      options: ['info', 'warning', 'error'],
+      description: 'Type of the Alert',
+    },
+    buttonText: {
+      control: 'text',
+      description: 'Property buttonText of the Alert',
+    },
     title: { control: 'text', description: 'Property title of the Alert' },
-    subTitle: { control: 'text', description: 'Property subTitle of the Alert' },
+    subTitle: {
+      control: 'text',
+      description: 'Property subTitle of the Alert',
+    },
   },
   args: { type: 'info' },
 } satisfies Meta<typeof Alert>

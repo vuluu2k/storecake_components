@@ -7,14 +7,24 @@ const meta = {
   component: Tags,
   tags: ['autodocs'],
   argTypes: {
-    size: { control: 'select', options: ['sm', 'md', 'lg'], description: 'Size of the Tags' },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+      description: 'Size of the Tags',
+    },
     type: {
       control: 'select',
       options: ['secondary', 'primary', 'info', 'success', 'warning', 'error'],
       description: 'Type of the Tags',
     },
-    bordered: { control: 'boolean', description: 'Property bordered of the Tags' },
-    closable: { control: 'boolean', description: 'Property closable of the Tags' },
+    bordered: {
+      control: 'boolean',
+      description: 'Property bordered of the Tags',
+    },
+    closable: {
+      control: 'boolean',
+      description: 'Property closable of the Tags',
+    },
   },
   args: { size: 'md', type: 'primary', bordered: false, closable: false },
 } satisfies Meta<typeof Tags>

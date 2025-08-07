@@ -8,7 +8,10 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     title: { control: 'text', description: 'Property title of the Tooltip' },
-    visible: { control: 'boolean', description: 'Property visible of the Tooltip' },
+    visible: {
+      control: 'boolean',
+      description: 'Property visible of the Tooltip',
+    },
   },
   args: { title: '', visible: false },
 } satisfies Meta<typeof Tooltip>

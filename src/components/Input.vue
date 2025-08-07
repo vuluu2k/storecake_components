@@ -1,5 +1,5 @@
 <template>
-  <div class="input-design" :class="$attrs.class">
+  <div :class="['input-design', $attrs.class, size]">
     <label
       v-if="label"
       :class="['input-label-design', { 'input-label-design-error': isError, 'input-label-design-link': isLink }]"
@@ -16,8 +16,12 @@
       ref="input"
       :class="[
         'input-design-input',
-        size,
-        { 'input-design-input-error': isError, 'input-design-input-link': isLink, disabled },
+        {
+          'input-design-input-error': isError,
+          'input-design-input-link': isLink,
+          disabled,
+          'input-design-input-without-controls': !controls,
+        },
         classes,
       ]"
       :value="value"
@@ -73,7 +77,6 @@
 
 <script>
   import { debounce } from 'lodash'
-  import { Tooltip as ATooltip, Input as AInput, Textarea as ATextarea } from 'ant-design-vue'
   import { PhInfo, PhQuestion, PhXCircle } from '@phosphor-icons/vue'
 
   export default {
@@ -81,9 +84,6 @@
       PhInfo,
       PhQuestion,
       PhXCircle,
-      ATooltip,
-      AInput,
-      ATextarea,
     },
     inheritAttrs: false,
     props: {
@@ -161,6 +161,10 @@
       isNumber: {
         type: Boolean,
         default: false,
+      },
+      controls: {
+        type: Boolean,
+        default: true,
       },
     },
     emits: ['change', 'update:value', 'focus', 'blur', 'pressEnter', 'keypress'],

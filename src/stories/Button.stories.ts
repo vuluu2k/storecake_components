@@ -7,22 +7,34 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
-    label: { control: 'text', description: 'Label of the Button' },
+    label: { control: 'number', description: 'Label of the Button' },
     loading: { control: 'boolean', description: 'Loading state of the Button' },
+    opacityLoading: {
+      control: 'number',
+      description: 'Property opacityLoading of the Button',
+    },
     type: {
       control: 'select',
       options: ['primary', 'secondary', 'gray', 'info', 'warning', 'black', 'gold', 'error', 'danger'],
       description: 'Type of the Button',
     },
-    size: { control: 'select', options: ['xs', 'sm', 'md', 'lg'], description: 'Size of the Button' },
+    size: {
+      control: 'select',
+      options: ['xs', 'sm', 'md', 'lg'],
+      description: 'Size of the Button',
+    },
     danger: { control: 'boolean', description: 'Danger state of the Button' },
     ghost: { control: 'boolean', description: 'Ghost state of the Button' },
-    disabled: { control: 'boolean', description: 'Disabled state of the Button' },
+    disabled: {
+      control: 'boolean',
+      description: 'Disabled state of the Button',
+    },
     classes: { control: 'text', description: 'Classes of the Button' },
   },
   args: {
     label: '',
     loading: false,
+    opacityLoading: 0.7,
     type: 'primary',
     size: 'md',
     danger: false,
@@ -40,6 +52,7 @@ export const Default: Story = {
   args: {
     label: 'Click me!',
     loading: false,
+    opacityLoading: 0.7,
     type: 'primary',
     size: 'md',
     danger: false,

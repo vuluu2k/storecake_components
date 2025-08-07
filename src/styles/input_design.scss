@@ -1,9 +1,43 @@
 .input-design {
+  $types: (
+    xs: (
+      --height: var(--size-xs, 24px),
+      --border-radius: var(--round-4, 4px),
+      --font-size: 13px,
+      --line-height: 16px,
+    ),
+    sm: (
+      --height: var(--size-sm, 28px),
+      --border-radius: var(--round-4, 4px),
+      --font-size: 13px,
+      --line-height: 16px,
+    ),
+    md: (
+      --height: var(--size-md, 32px),
+      --line-height: 22px,
+    ),
+    lg: (
+      --height: var(--size-lg, 36px),
+      --line-height: 22px,
+    ),
+  );
+
+  @each $type, $properties in $types {
+    &.#{$type} {
+      @each $key, $value in $properties {
+        #{$key}: $value;
+      }
+    }
+  }
+
   .input-design-input {
     @include text-design-body-regular;
-    border-radius: var(--round-common, 6px) !important;
+    border-radius: var(--border-radius, 6px) !important;
     border: 1px solid var(--border-common);
     padding: 2px 8px;
+    height: var(--height);
+    font-size: var(--font-size, 14px);
+    line-height: var(--line-height, 22px);
 
     .ant-input {
       line-height: var(--line-height);
@@ -11,15 +45,21 @@
 
     input {
       @include text-design-body-regular;
+      font-size: var(--font-size, 14px);
+      line-height: var(--line-height, 22px);
       background: transparent;
 
       &::placeholder {
         @include placeholder-design;
+        font-size: var(--font-size, 14px);
+        line-height: var(--line-height, 22px);
       }
     }
 
     &::placeholder {
       @include placeholder-design;
+      font-size: var(--font-size, 14px);
+      line-height: var(--line-height, 22px);
     }
 
     .ant-input-suffix {
@@ -40,38 +80,6 @@
       box-shadow: 0px 0px 0px 2px var(--color-box-shadow-primary) !important;
     }
 
-    &.lg {
-      height: var(--size-lg, 36px);
-      --line-height: 22px;
-    }
-
-    &.md {
-      height: var(--size-md, 32px);
-      --line-height: 22px;
-    }
-
-    &.sm {
-      height: var(--size-sm, 28px);
-      border-radius: var(--round-4, 4px);
-      font-size: 12px;
-      --line-height: 16px;
-
-      &::placeholder {
-        font-size: 12px;
-      }
-    }
-
-    &.xs {
-      height: var(--size-xs, 24px);
-      border-radius: var(--round-4, 4px);
-      font-size: 12px;
-      --line-height: 16px;
-
-      &::placeholder {
-        font-size: 12px;
-      }
-    }
-
     &-error {
       border-color: var(--color-border-negative, #e41e1e) !important;
 
@@ -89,6 +97,11 @@
     &.disabled {
       opacity: unset;
       background: var(--color-bg-disabled, #e5e5e5);
+      &:focus,
+      &:focus-within {
+        border-color: var(--color-border-disabled, #e5e5e5) !important;
+        box-shadow: none !important;
+      }
     }
 
     &-link {
@@ -111,10 +124,10 @@
 
   .input-label-design {
     font-family: var(--font-family);
-    font-size: 14px;
+    font-size: var(--font-size, 14px);
     font-style: normal;
-    font-weight: 500;
-    line-height: 22px;
+    font-weight: var(--font-weight, 500);
+    line-height: var(--line-height, 22px);
     color: var(--color-content-neutral-medium, #525252);
     display: flex;
     align-items: center;
@@ -134,10 +147,10 @@
 
   .input-message-design {
     font-family: var(--font-family);
-    font-size: 14px;
+    font-size: var(--font-size, 14px);
     font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
+    font-weight: var(--font-weight, 400);
+    line-height: var(--line-height, 22px);
     color: var(--color-content-neutral-light, #525252);
     display: flex;
     align-items: center;
@@ -171,17 +184,25 @@
       }
     }
   }
+
+  .input-design-input-without-controls {
+    input {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none !important;
+        margin: 0 !important;
+      }
+    }
+  }
 }
 
 .input-phone-country-select {
   width: 46px;
   .ant-select-selector {
-    background: transparent !important;
     border: unset !important;
     padding: 0 !important;
     border-radius: unset !important;
     border-right: 1px solid var(--border-common) !important;
-    box-shadow: unset !important;
   }
 }
 

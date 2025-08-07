@@ -16,7 +16,10 @@ const meta = {
       options: ['webp', 'webp0'],
       description: 'Property compressedType of the Image',
     },
-    fixedSize: { control: 'boolean', description: 'Property fixedSize of the Image' },
+    fixedSize: {
+      control: 'boolean',
+      description: 'Property fixedSize of the Image',
+    },
   },
   args: { alt: '', compressedType: 'webp', fixedSize: false },
 } satisfies Meta<typeof Image>

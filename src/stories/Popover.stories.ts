@@ -7,14 +7,38 @@ const meta = {
   component: Popover,
   tags: ['autodocs'],
   argTypes: {
-    options: { control: 'array', description: 'Property options of the Popover' },
-    sKey: { control: 'text', description: 'Select a property of option is Key' },
-    sValue: { control: 'text', description: 'Select a property of option is Value' },
-    maxHeight: { control: 'number', description: 'Property maxHeight of the Popover' },
-    minWidth: { control: 'number', description: 'Property minWidth of the Popover' },
-    overlayStyle: { control: 'text', description: 'Property overlayStyle of the Popover' },
-    useArrow: { control: 'boolean', description: 'Property useArrow of the Popover' },
-    overlayClassName: { control: 'text', description: 'Property overlayClassName of the Popover' },
+    options: {
+      control: 'array',
+      description: 'Property options of the Popover',
+    },
+    sKey: {
+      control: 'text',
+      description: 'Select a property of option is Key',
+    },
+    sValue: {
+      control: 'text',
+      description: 'Select a property of option is Value',
+    },
+    maxHeight: {
+      control: 'number',
+      description: 'Property maxHeight of the Popover',
+    },
+    minWidth: {
+      control: 'number',
+      description: 'Property minWidth of the Popover',
+    },
+    overlayStyle: {
+      control: 'text',
+      description: 'Property overlayStyle of the Popover',
+    },
+    useArrow: {
+      control: 'boolean',
+      description: 'Property useArrow of the Popover',
+    },
+    overlayClassName: {
+      control: 'text',
+      description: 'Property overlayClassName of the Popover',
+    },
   },
   args: { sKey: 'key', sValue: 'value', useArrow: false, overlayClassName: '' },
 } satisfies Meta<typeof Popover>
